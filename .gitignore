@@ -11,6 +11,7 @@ doc/
 lib/bundler/man
 pkg
 rdoc
+spec/cassettes
 spec/reports
 spec/tmp
 test/tmp
