@@ -9,7 +9,7 @@ end
 group :test do
   gem 'rspec'
   gem 'vcr'
-  gem 'webmock'
+  gem 'webmock', '~> 1.8.0'
 
   gem 'spork'
   gem 'autotest'
