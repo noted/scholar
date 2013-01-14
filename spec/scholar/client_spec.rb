@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Scholar::Client do
   describe "#initialize" do
     let(:client) do
-      Scholar::Client.new do |c|
-        c.easybib_key 'foobar'
+      Scholar::Client.new do |s|
+        s.easybib_key 'foobar'
       end
     end
 
