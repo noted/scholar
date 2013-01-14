@@ -3,18 +3,19 @@ require 'spec_helper'
 describe Scholar::Client do
   describe "#initialize" do
     let(:client) do
-      Scholar::Client.new do |s|
-        s.easybib_key 'foobar'
+      Scholar::Client.new do |c|
+        c.easybib = 'barfoo'
+        c.worldcat = 'foobar'
       end
     end
 
     it "is an object" do
-      client.should be_valid
       client.should be_an_instance_of Scholar::Client
     end
-    
-    it "sets EasyBib API key" do
-      client.easybib_key.should eql('foobar')
+
+    describe "configuration" do
+      it { client.config.easybib.should eql("barfoo") }
+      it { client.config.worldcat.should eql("foobar") }
     end
   end
 end

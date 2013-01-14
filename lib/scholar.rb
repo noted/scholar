@@ -1,3 +1,1 @@
-module Scholar
-  # Your code goes here...
-end
+require_relative 'scholar/client'
