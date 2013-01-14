@@ -12,20 +12,18 @@ scholar = Scholar::Client.new do |s|
 end
 
 salinger = scholar.book.cite({
-  {
-    :title => "Catcher in the Rye",
-    :contributors => [
-      {
-        :function => "author",
-        :first => "J",
-        :middle => "D",
-        :last => "Salinger"
-      }
-    ],
-    :publisher => "Little, Brown",
-    :city => "Boston",
-    :year => "1995"
-  }
+  :title => "Catcher in the Rye",
+  :contributors => [
+    {
+      :function => "author",
+      :first => "J",
+      :middle => "D",
+      :last => "Salinger"
+    }
+  ],
+  :publisher => "Little, Brown",
+  :city => "Boston",
+  :year => "1995"
 })
 
 salinger.html # => Salinger, J. D. <u>Catcher in the Rye<\/u>. Boston: Little, Brown, 1995.
