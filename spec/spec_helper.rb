@@ -18,7 +18,7 @@ Spork.prefork do
 
   def scholar
     Scholar::Client.new do |s|
-      s.easybib_key "foobar"
+      s.easybib = "foobar"
     end
   end
 
@@ -26,18 +26,22 @@ Spork.prefork do
     class << self
       def hash
         {
-          :title => "Catcher in the Rye",
+          :type => :book,
+          :media => :print,
+          :title => "The Catcher in the Rye",
           :contributors => [
             {
-              :function => "author",
+              :type => :author,
               :first => "J",
               :middle => "D",
               :last => "Salinger"
             }
           ],
-          :publisher => "Little, Brown",
-          :city => "Boston",
-          :year => "1995"
+          :publication => {
+            :name => "Little, Brown",
+            :city => "Boston",
+            :year => "1995"
+          }
         }
       end
 

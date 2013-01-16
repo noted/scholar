@@ -23,7 +23,7 @@ salinger = scholar.cite({
       :middle => "D",
       :last => "Salinger"
     }
-  ]
+  ],
   :publication => {
     :name => "Little, Brown",
     :city => "Boston",
