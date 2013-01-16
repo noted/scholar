@@ -12,8 +12,8 @@ describe Scholar::Configuration do
       client.conf.worldcat.should be_nil
     end
 
-    it "formats are nil" do
-      client.conf.format.should be_nil
+    it "output is nil" do
+      client.conf.output.should be_nil
     end
   end
 
@@ -22,7 +22,7 @@ describe Scholar::Configuration do
       Scholar::Client.new do |c|
         c.easybib  = 'foobar'
         c.worldcat = 'barfoo'
-        c.format = [:markdown, :html, :bibtex]
+        c.output = [:markdown, :html, :bibtex]
       end
     end
 
@@ -34,8 +34,8 @@ describe Scholar::Configuration do
       client.conf.worldcat.should eql('barfoo')
     end
 
-    it "format not nil" do
-      client.conf.format.should eql([:markdown, :html, :bibtex])
+    it "output is not nil" do
+      client.conf.output.should eql([:markdown, :html, :bibtex])
     end
   end
 end

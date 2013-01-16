@@ -9,10 +9,10 @@ module Scholar
   end
 
   class Configuration
-    attr_accessor :easybib, :worldcat, :format
+    attr_accessor :easybib, :worldcat, :output
 
     def initialize
-      [:easybib, :worldcat, :format].each do |k|
+      [:easybib, :worldcat, :output].each do |k|
         instance_variable_set("@#{k.to_s}", nil)
       end
     end

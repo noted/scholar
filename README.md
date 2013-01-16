@@ -4,9 +4,8 @@ Scholar is meant to aid in creating MLA citations by providing a wrapper for the
 
 ```ruby
 scholar = Scholar::Client.new do |s|
-  s.easybib_key 'EASYBIB-API-KEY'
-  s.loc_key 'LIBRARY_OF_CONGRESS_KEY'
-  s.worldcat_key 'WORLDCAT_KEY'
+  s.easybib 'EASYBIB-API-KEY'
+  s.worldcat 'WORLDCAT_KEY'
 
   s.output :html, :markdown, :bibtex
 end
