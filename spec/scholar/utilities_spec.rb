@@ -38,4 +38,18 @@ describe Scholar::Utilities do
       it { author.should eql("Sample, John Q., Ph.D")}
     end
   end
+
+  describe ".order" do
+    context "all elements present" do
+      let(:hash) { Scholar::Utilities.order([:foo, :bar], { :bar => "barfoo", :foo => "foobar" }) }
+
+      it { hash.should eql({ :foo => "foobar", :bar => "barfoo" }) }
+    end
+
+    context "missing element" do
+      let(:hash) { Scholar::Utilities.order([:foo, :bar], { :bar => "barfoo"}) }
+
+      it { hash.should eql({ :bar => "barfoo" }) }
+    end
+  end
 end
