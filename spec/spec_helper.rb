@@ -26,7 +26,6 @@ Spork.prefork do
     class << self
       def hash
         {
-          :type => :book,
           :media => :print,
           :title => "The Catcher in the Rye",
           :contributors => [
@@ -37,7 +36,7 @@ Spork.prefork do
               :last => "Salinger"
             }
           ],
-          :publication => {
+          :publisher => {
             :name => "Little, Brown",
             :city => "Boston",
             :year => "1995"

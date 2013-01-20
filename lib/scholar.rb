@@ -1,5 +1,5 @@
 require 'json'
-require 'faraday'
+require 'activesupport'
 
 require_relative 'scholar/client'
 require_relative 'scholar/utilities'
