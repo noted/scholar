@@ -3,12 +3,13 @@
 Scholar is meant to aid in creating MLA citations.
 
 ```ruby
-scholar = Scholar::Client.new do |s|
-  s.easybib 'EASYBIB-API-KEY'
-  s.worldcat 'WORLDCAT_KEY'
-
-  s.output :html, :markdown, :bibtex
-end
+scholar = Scholar::Client.new({
+  :output => [
+    :html,
+    :markdown,
+    :bibtex
+  ]
+})
 
 # Books
 salinger = scholar.cite({
