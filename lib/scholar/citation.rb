@@ -1,11 +1,19 @@
 module Scholar
   class Citation
+    attr_accessor :hash, :html
+
     def initialize(options = {})
     end
-  end
 
-  class Book < Citation
-    def initialize
+    private
+
+    def order!(hash)
+    end
+
+    def format!(hash)
+    end
+
+    def convert!(hash)
     end
   end
 end

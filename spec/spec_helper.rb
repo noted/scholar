@@ -44,10 +44,8 @@ Spork.prefork do
         }
       end
 
-      def json
-      end
-
       def html
+        "Salinger, J. D. <u>Catcher in the Rye<\/u>. Boston: Little, Brown, 1995."
       end
     end
   end
