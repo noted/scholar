@@ -15,7 +15,7 @@ module Scholar
       end
 
       def order(template, hash)
-        ordered = Hash.new
+        ordered = ActiveSupport::OrderedHash.new
 
         template.each do |e|
           if hash[e]
