@@ -20,7 +20,8 @@ module Scholar
 
       def format
         [
-          Scholar::Utilities.italicize(:title)
+          replace(:title, italicize(:title))
+          replace(:edition, "#{cardinal(:edition)} ed.")
         ]
       end
     end

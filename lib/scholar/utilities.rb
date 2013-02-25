@@ -1,13 +1,22 @@
 module Scholar
   module Utilities
     class << self
-      def author(attr = {}) # Clean up. Handle blank attributes.
+      def name(attr = {}) # Clean up. Handle blank attributes.
         last = attr[:last] ? "#{attr[:last]}, " : nil
         first = attr[:first] ? "#{attr[:first]}" : nil
         middle = attr[:middle] ? " #{attr[:middle][0,1]}." : nil
         suffix = attr[:suffix] ? ", #{attr[:suffix]}" : nil
 
         "#{last}#{first}#{middle}#{suffix}"
+      end
+
+      def format(template, hash)
+        # Replace symbols in template with hash key-values
+        # Use `send(arr-value)` on everything in template
+
+        template.each do |e|
+          send(e)
+        end
       end
 
       def italicize(str)

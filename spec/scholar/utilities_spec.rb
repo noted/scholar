@@ -13,27 +13,27 @@ describe Scholar::Utilities do
     it { str.should eql("<u>foobar</u>") }
   end
 
-  describe ".author" do
+  describe ".name" do
     context "first name" do
-      let(:author) { Scholar::Utilities.author(:first => "John") }
+      let(:author) { Scholar::Utilities.name(:first => "John") }
 
       it { author.should eql("John") }
     end
 
     context "first name and middle name" do
-      let(:author) { Scholar::Utilities.author(:first => "John", :middle => "Quincy") }
+      let(:author) { Scholar::Utilities.name(:first => "John", :middle => "Quincy") }
 
       it { author.should eql("John Q.") }
     end
 
     context "first, middle, and last name" do
-      let(:author) { Scholar::Utilities.author(:first => "John", :middle => "Quincy", :last => "Sample") }
+      let(:author) { Scholar::Utilities.name(:first => "John", :middle => "Quincy", :last => "Sample") }
 
       it { author.should eql("Sample, John Q.") }
     end
 
     context "first, middle, last name, and suffix" do
-      let(:author) { Scholar::Utilities.author(:first => "John", :middle => "Quincy", :last => "Sample", :suffix => "Ph.D") }
+      let(:author) { Scholar::Utilities.name(:first => "John", :middle => "Quincy", :last => "Sample", :suffix => "Ph.D") }
 
       it { author.should eql("Sample, John Q., Ph.D")}
     end
