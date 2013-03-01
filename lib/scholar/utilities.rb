@@ -10,6 +10,9 @@ module Scholar
         "#{last}#{first}#{middle}#{suffix}"
       end
 
+      # Takes hashes that have arrays of hashes and makes
+      #   root level arrays of hashes based on the :type
+      #   key of the third-level hash. Holy hell.
       # Sweet deep-fried baby Jesus, this is terrible. Refactor this.
       def flatten(hash)
         hash.each do |k, v|
