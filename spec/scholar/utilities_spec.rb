@@ -13,6 +13,14 @@ describe Scholar::Utilities do
     it { str.should eql("<u>foobar</u>") }
   end
 
+  describe ".format" do
+    it "formats elements of an hash with a given sequence"
+  end
+
+  describe ".flatten" do
+    it "splits Arrays of Hashes within a Hash into different arrays based on the `:type` element"
+  end
+
   describe ".name" do
     context "first name" do
       let(:author) { Scholar::Utilities.name(:first => "John") }

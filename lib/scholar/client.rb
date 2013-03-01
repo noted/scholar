@@ -6,5 +6,9 @@ module Scholar
       @output = options[:output]
       @output ||= [:html, :markdown]
     end
+
+    def cite(*args)
+      Scholar::Citation.new(args)
+    end
   end
 end
