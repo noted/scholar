@@ -1,6 +1,10 @@
 module Scholar
   module Utilities
     class << self
+      def carets(str)
+        "&#60;#{str}&#62;"
+      end
+
       def name(attr = {}) # Clean up. Handle blank attributes.
         last = attr[:last] ? "#{attr[:last]}, " : nil
         first = attr[:first] ? "#{attr[:first]}" : nil
@@ -68,6 +72,10 @@ module Scholar
         end
 
         ordered
+      end
+
+      def quotes(str)
+        "&#8220;#{str}&#8221;"
       end
 
       def underline(str)

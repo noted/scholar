@@ -1,6 +1,18 @@
 require 'spec_helper'
 
 describe Scholar::Utilities do
+  describe ".carets" do
+    let(:str) { Scholar::Utilities.carets("foobar") }
+
+    it { str.should eql("&#60;foobar&#62;") }
+  end
+
+  describe ".quotes" do
+    let(:str) { Scholar::Utilities.quotes("foobar") }
+
+    it { str.should eql("&#8220;foobar&#8221;") }
+  end
+
   describe ".italicize" do
     let(:str) { Scholar::Utilities.italicize("foobar") }
 
