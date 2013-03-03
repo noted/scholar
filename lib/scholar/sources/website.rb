@@ -1,24 +1,24 @@
 module Scholar
-  class Book < Source
-    name "Book"
+  class Website < Source
+    name "Website"
 
     sequence [
       :author,
       :title,
+      :website,
       :editor,
-      :compiler,
       :translator,
-      :edition,
-      :volume,
-      :city,
       :publisher,
-      :year,
+      :date,
       :media,
-      :series
+      :accessed,
+      :url
     ]
 
     rules do
-      underline :title
+      quotes :title
+      italicize :website
+      carets :url
     end
   end
 end
