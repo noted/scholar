@@ -3,8 +3,6 @@ module Scholar
     attr_accessor :output
 
     def initialize(options = {})
-      @output = options[:output]
-      @output ||= [:html, :markdown]
     end
 
     def cite(*args)
