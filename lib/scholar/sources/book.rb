@@ -17,7 +17,7 @@ module Scholar
       ]
 
       rules do
-        italicize(:title) # Calls #italicize with :title as argument
+        rule(:title, :italicize) # Calls #italicize with :title as argument
       end
     end
   end

@@ -16,6 +16,10 @@ module Scholar
           self.class_variable_get(:@@rules)
         end
       end
+
+      def rule(key, action)
+        # Perform action on key in Hash
+      end
     end
   end
 
