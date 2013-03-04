@@ -1,7 +1,7 @@
 module Scholar
   module Sources
     class Book
-      include Scholar::Source
+      extend Source
 
       sequence [
         :foo,
