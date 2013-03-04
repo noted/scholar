@@ -1,7 +1,5 @@
 module Scholar
   class Client
-    attr_accessor :output
-
     def initialize(options = {})
     end
 

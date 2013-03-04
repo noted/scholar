@@ -2,20 +2,8 @@ require 'spec_helper'
 
 describe Scholar::Client do
   describe ".initialize" do
-    context "without arguments" do
-      let(:c) { Scholar::Client.new }
+    let(:client) { Scholar::Client.new }
 
-      it { c.output.should eql([:html, :markdown]) }
-    end
-
-    context "with arguments" do
-      let(:c) do
-        Scholar::Client.new do |c|
-          c.output [:html, :markdown]
-        end
-      end
-
-      it { c.output.should eql([:html, :markdown]) }
-    end
+    it { client.should be_an_instance_of Scholar::Client }
   end
 end

@@ -25,14 +25,6 @@ describe Scholar::Utilities do
     it { str.should eql("<u>foobar</u>") }
   end
 
-  describe ".format" do
-    it "formats elements of an hash with a given sequence"
-  end
-
-  describe ".flatten" do
-    it "splits Arrays of Hashes within a Hash into different arrays based on the `:type` element"
-  end
-
   describe ".name" do
     context "first name" do
       let(:author) { Scholar::Utilities.name(:first => "John") }
@@ -59,17 +51,21 @@ describe Scholar::Utilities do
     end
   end
 
-  describe ".order" do
+  describe ".order!" do
     context "all elements present" do
-      let(:hash) { Scholar::Utilities.order([:foo, :bar], { :bar => "barfoo", :foo => "foobar" }) }
+      let(:hash) { Scholar::Utilities.order!([:foo, :bar], { :bar => "barfoo", :foo => "foobar" }) }
 
       it { hash.should eql({ :foo => "foobar", :bar => "barfoo" }) }
     end
 
     context "missing element" do
-      let(:hash) { Scholar::Utilities.order([:foo, :bar], { :bar => "barfoo"}) }
+      let(:hash) { Scholar::Utilities.order!([:foo, :bar], { :bar => "barfoo"}) }
 
       it { hash.should eql({ :bar => "barfoo" }) }
     end
+  end
+
+  describe ".format!" do
+    it "formats elements in Hash based on rule definitions"
   end
 end

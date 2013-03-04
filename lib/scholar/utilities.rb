@@ -1,22 +1,6 @@
 module Scholar
   class Utilities
     class << self
-      def order!(template, hash)
-        ordered = ActiveSupport::OrderedHash.new
-
-        template.each do |e|
-          if hash[e]
-            ordered[e] = hash[e]
-          end
-        end
-
-        ordered
-      end
-
-      def format!(rules, hash)
-
-      end
-
       def carets(str)
         "&#60;#{str}&#62;"
       end

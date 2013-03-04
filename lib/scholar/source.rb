@@ -1,21 +1,17 @@
 module Scholar
   class Source < Utilities
     class << self
-      def sequence(arr = nil) # These conditionals are very hacky.
-        if arr
-          self.class_variable_set(:@@sequence, arr)
-        else
-          self.class_variable_get(:@@sequence)
-        end
+      def sequence(arr = nil)
+        arr.nil? ? @@sequence : @@sequence = arr
       end
 
-      def rules(&block)
+      def rules(&block) # These conditionals are very hacky.
         if block
-          # self.class_variable_set(:@@rules, block)
           @@rules ||= []
-          self.class_eval &block
+
+          self.class_eval(&block)
         else
-          self.class_variable_get(:@@rules)
+          @@rules
         end
       end
 
