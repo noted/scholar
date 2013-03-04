@@ -9,12 +9,15 @@ module Scholar
         end
       end
 
-      def rules(*args) # This doesn't work, returns Array (should return Proc)
-        if args
-          self.class_variable_set(:@@rules, args)
+      def rules(&block)
+        if block
+          self.class_variable_set(:@@rules, block)
         else
           self.class_variable_get(:@@rules)
         end
+      end
+
+      def rule() # No effing idea.
       end
     end
   end

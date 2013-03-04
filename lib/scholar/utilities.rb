@@ -14,8 +14,12 @@ module Scholar
         "#{last}#{first}#{middle}#{suffix}"
       end
 
-      def italicize(str)
-        "<em>#{str}</em>"
+      def italicize(str, hash = nil)
+        if hash
+          hash[str] = "<em>#{hash[str.to_sym]}</em>"
+        else
+          "<em>#{str}</em>"
+        end
       end
 
       def order(template, hash)
@@ -36,6 +40,12 @@ module Scholar
 
       def underline(str)
         "<u>#{str}</u>"
+      end
+
+      def hash_to_variables(hash)
+        hash.each do |k, v|
+          eval("#{k.to_s} = #{v.to_s}")
+        end
       end
     end
   end

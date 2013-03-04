@@ -15,11 +15,10 @@ module Scholar
         :media,
         :series
       ]
+    end
 
-      rules do
-        italicize(:title)
-        replace(:edition, "#{cardinal(:edition)} ed.")
-      end
+    rules do
+      rule(:title, italicize)
     end
   end
 end
