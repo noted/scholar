@@ -14,9 +14,5 @@ module Scholar
 
       @rules = source.rules
     end
-    
-    def hash
-      @data
-    end
   end
 end
