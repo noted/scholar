@@ -14,7 +14,8 @@ module Scholar
         instance_eval "def #{attr}() @#{attr} end"
       end
 
-      @data = Scholar::Utilities.order(source.sequence, @data)
+      @data = Scholar::Utilities.order!(source.sequence, @data)
+      @data = Scholar::Utilities.format!(source.rules, @data)
 
       @rules = source.rules
     end

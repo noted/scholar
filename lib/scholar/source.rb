@@ -16,10 +16,6 @@ module Scholar
           self.class_variable_get(:@@rules)
         end
       end
-
-      def rule(key, action) # To-fix
-
-      end
     end
   end
 
