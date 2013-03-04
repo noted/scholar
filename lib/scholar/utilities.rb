@@ -56,6 +56,8 @@ module Scholar
             action.call(data[key])
           end
         end
+
+        data
       end
 
       def quotes(str)

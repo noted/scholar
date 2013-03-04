@@ -32,7 +32,8 @@ Spork.prefork do
             :name => "Little, Brown",
             :city => "Boston",
             :year => "1995"
-          }
+          },
+          :type => :book
         }
       end
 

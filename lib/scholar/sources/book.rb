@@ -1,6 +1,6 @@
 module Scholar
   module Sources
-    class Book < Source
+    class Book < Scholar::Source
       sequence [
         :author,
         :title,

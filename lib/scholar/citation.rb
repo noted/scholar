@@ -1,10 +1,10 @@
 module Scholar
   class Citation
     attr_accessor :data, :rules
-
+    
     def initialize(options = {})
       source = "Scholar::Sources::#{options[:type].to_s.camelize}".constantize
-
+      
       options.delete(:type)
 
       @data = options
@@ -13,6 +13,10 @@ module Scholar
       @data = Scholar::Utilities.format!(source.rules, @data)
 
       @rules = source.rules
+    end
+    
+    def hash
+      @data
     end
   end
 end
