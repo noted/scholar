@@ -2,12 +2,23 @@ module Scholar
   module Sources
     class Book < Source
       sequence [
-        :foo,
-        :bar
+        :author,
+        :title,
+        :editor,
+        :compiler,
+        :translator,
+        :edition,
+        :volume,
+        :city,
+        :publisher,
+        :year,
+        :media,
+        :series
       ]
 
-      rules do |r|
-        r.italicize("foo")
+      rules do
+        italicize(:title)
+        replace(:edition, "#{cardinal(:edition)} ed.")
       end
     end
   end

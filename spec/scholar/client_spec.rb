@@ -9,9 +9,13 @@ describe Scholar::Client do
     end
 
     context "with arguments" do
-      let(:c) { Scholar::Client.new({ :output => [:html, :bibtex] }) }
+      let(:c) do
+        Scholar::Client.new do |c|
+          c.output [:html, :markdown]
+        end
+      end
 
-      it { c.output.should eql([:html, :bibtex]) }
+      it { c.output.should eql([:html, :markdown]) }
     end
   end
 end

@@ -1,5 +1,5 @@
 require 'json'
-require 'active_support'
+require 'active_support/all'
 
 require_relative 'scholar/client'
 require_relative 'scholar/utilities'
