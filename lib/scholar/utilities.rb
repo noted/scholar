@@ -38,6 +38,26 @@ module Scholar
         end
       end
 
+      def order!(template, hash)
+        ordered = ActiveSupport::OrderedHash.new
+
+        template.each do |e|
+          if hash[e]
+            ordered[e] = hash[e]
+          end
+        end
+
+        ordered
+      end
+
+      def format!(rules, data)
+        @@rules.each do |key, action|
+          data[key] = Scholar::Utilities.instance_eval do
+            action.call(data[key])
+          end
+        end
+      end
+
       def quotes(str)
         "&#8220;#{str}&#8221;"
       end

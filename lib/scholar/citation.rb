@@ -9,11 +9,6 @@ module Scholar
 
       @data = options
 
-      options.each do |(attr, val)|
-        instance_variable_set("@#{attr}", val)
-        instance_eval "def #{attr}() @#{attr} end"
-      end
-
       @data = Scholar::Utilities.order!(source.sequence, @data)
       @data = Scholar::Utilities.format!(source.rules, @data)
 
