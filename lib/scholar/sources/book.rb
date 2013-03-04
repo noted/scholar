@@ -5,6 +5,10 @@ module Scholar
         :foo,
         :bar
       ]
+
+      rules do |r|
+        r.italicize("foo")
+      end
     end
   end
 end

@@ -8,6 +8,14 @@ module Scholar
           self.class_variable_get(:@@sequence)
         end
       end
+
+      def rules(*args) # This doesn't work, returns Array (should return Proc)
+        if args
+          self.class_variable_set(:@@rules, args)
+        else
+          self.class_variable_get(:@@rules)
+        end
+      end
     end
   end
 
