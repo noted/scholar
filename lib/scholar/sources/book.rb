@@ -1,8 +1,6 @@
 module Scholar
   module Sources
-    class Book
-      extend Source
-
+    class Book < Source
       sequence [
         :foo,
         :bar
