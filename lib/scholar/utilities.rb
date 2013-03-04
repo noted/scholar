@@ -33,6 +33,14 @@ module Scholar
 
         ordered
       end
+      
+      def format(rules, data)
+        @@rules.each do |key, action|
+          data[key] = Scholar::Utilities.instance_eval do
+            action.call(data[key])
+          end
+        end
+      end
 
       def quotes(str)
         "&#8220;#{str}&#8221;"
