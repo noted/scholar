@@ -51,7 +51,7 @@ module Scholar
       end
 
       def format!(rules, data)
-        @@rules.each do |key, action|
+        rules.each do |key, action|
           data[key] = Scholar::Utilities.instance_eval do
             action.call(data[key])
           end
