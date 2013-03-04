@@ -17,7 +17,8 @@ module Scholar
         end
       end
 
-      def rule() # No effing idea.
+      def rule(key, action) # To-fix
+
       end
     end
   end

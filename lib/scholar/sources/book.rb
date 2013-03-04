@@ -15,10 +15,10 @@ module Scholar
         :media,
         :series
       ]
-    end
 
-    rules do
-      rule(:title, italicize)
+      rules do
+        rule(:title, italicize) # Calls #italicize with :title as argument
+      end
     end
   end
 end
