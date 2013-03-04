@@ -5,13 +5,25 @@ module Scholar
         "&#60;#{str}&#62;"
       end
 
-      def name(attr = {}) # Clean up. Handle blank attributes.
+      # Refactor!
+      #   - handle blank attributes
+      #   - one-letter names
+      #   - multiple names
+      def name(attr = {}) # Clean up. Handle blank attributes and one-letter names ("J. D. Salinger").
         last = attr[:last] ? "#{attr[:last]}, " : nil
         first = attr[:first] ? "#{attr[:first]}" : nil
         middle = attr[:middle] ? " #{attr[:middle][0,1]}." : nil
         suffix = attr[:suffix] ? ", #{attr[:suffix]}" : nil
 
         "#{last}#{first}#{middle}#{suffix}"
+      end
+
+      def publication(attr = {})
+        city = attr[:city] ? "#{attr[:city]}: " : nil
+        name = attr[:name] ? "#{attr[:name]}, " : nil
+        year = attr[:year] ? "#{attr[:year]}" : nil
+
+        city + name + year
       end
 
       def italicize(str, hash = nil)

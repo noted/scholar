@@ -51,6 +51,10 @@ describe Scholar::Utilities do
     end
   end
 
+  describe ".publication" do
+    it "puts publication details in the right order"
+  end
+
   describe ".order!" do
     context "all elements present" do
       let(:hash) { Scholar::Utilities.order!([:foo, :bar], { :bar => "barfoo", :foo => "foobar" }) }
