@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = "0.1.0"
   gem.authors       = ["Ethan Turkeltaub"]
   gem.email         = ["ethan.turkeltaub@gmail.com"]
-  gem.description   = %q{Scholarly citations with EasyBib.}
-  gem.summary       = %q{Scholarly citations with EasyBib.}
+  gem.description   = %q{Generate valid MLA citations.}
+  gem.summary       = %q{Generate valid MLA citations.}
   gem.homepage      = "http://github.com/noted/scholar"
   gem.license       = "MIT"
 
