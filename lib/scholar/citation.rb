@@ -1,4 +1,6 @@
 module Scholar
+
+  # Generates the actual citation by grabbing data from Source.
   class Citation
     attr_accessor :data
 

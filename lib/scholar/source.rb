@@ -1,4 +1,6 @@
 module Scholar
+
+  # Inherit from to define source types.
   class Source < Utilities
     class << self
       def sequence(arr = nil)

@@ -1,4 +1,6 @@
 module Scholar
+
+  # Basic utilities to format data.
   class Utilities
     class << self
       def carets(str)
@@ -9,7 +11,7 @@ module Scholar
       #   - handle blank attributes
       #   - one-letter names
       #   - multiple names
-      def name(attr = {}) # Clean up. Handle blank attributes and one-letter names ("J. D. Salinger").
+      def name(attr = {})
         last = attr[:last] ? "#{attr[:last]}, " : nil
         first = attr[:first] ? "#{attr[:first]}" : nil
         middle = attr[:middle] ? " #{attr[:middle][0,1]}." : nil
