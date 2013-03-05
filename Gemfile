@@ -12,7 +12,6 @@ group :test do
   gem 'rspec'
 
   gem 'spork'
-  gem 'autotest'
   gem 'fuubar'
 
   gem 'cane'
