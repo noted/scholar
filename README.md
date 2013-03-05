@@ -1,6 +1,6 @@
 # Scholar [![Build Status](https://secure.travis-ci.org/noted/scholar.png)](https://travis-ci.org/noted/scholar)
 
-Scholar is a Ruby library for building [MLA citations](http://www.mla.org/) for scholarly works.
+Scholar is a Ruby library for building [MLA citations](http://www.mla.org/).
 
 ```ruby
 salinger = Scholar::Citation.new({
