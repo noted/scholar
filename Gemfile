@@ -4,6 +4,7 @@ gemspec
 
 group :development, :test do
   gem 'rake'
+  gem 'pry'
   gem 'log_buddy'
 end
 

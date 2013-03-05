@@ -25,30 +25,43 @@ describe Scholar::Utilities do
     it { str.should eql("<u>foobar</u>") }
   end
 
+  describe ".contributors" do
+    let(:before) {[
+      {
+        :type => :author,
+        :name => "Douglas Adams"
+      },
+      {
+        :type => :author,
+        :name => "J.R.R. Tolkein"
+      },
+      {
+        :type => :editor,
+        :name => "Les Grossman"
+      }
+    ]}
+
+    let(:after) {{
+      :authors => [
+        { :name => "Douglas Adams" },
+        { :name => "J.R.R. Tolkein" }
+      ],
+      :editors => [
+        { :name => "Les Grossman" }
+      ]
+    }}
+
+    let(:contributors) { Scholar::Utilities.contributors(before) }
+
+    it { contributors.should eql(after) }
+  end
+
   describe ".name" do
-    context "first name" do
-      let(:author) { Scholar::Utilities.name(:first => "John") }
+    it "properly formats names"
+  end
 
-      it { author.should eql("John") }
-    end
-
-    context "first name and middle name" do
-      let(:author) { Scholar::Utilities.name(:first => "John", :middle => "Quincy") }
-
-      it { author.should eql("John Q.") }
-    end
-
-    context "first, middle, and last name" do
-      let(:author) { Scholar::Utilities.name(:first => "John", :middle => "Quincy", :last => "Sample") }
-
-      it { author.should eql("Sample, John Q.") }
-    end
-
-    context "first, middle, last name, and suffix" do
-      let(:author) { Scholar::Utilities.name(:first => "John", :middle => "Quincy", :last => "Sample", :suffix => "Ph.D") }
-
-      it { author.should eql("Sample, John Q., Ph.D")}
-    end
+  describe ".names" do
+    it "puts names in the proper order with punctuation"
   end
 
   describe ".publication" do
