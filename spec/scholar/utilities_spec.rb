@@ -27,13 +27,13 @@ describe Scholar::Utilities do
 
   describe ".order!" do
     context "all elements present" do
-      let(:hash) { Scholar::Utilities.order!([:foo, :bar], { :bar => "barfoo", :foo => "foobar" }) }
+      let(:hash) { Scholar::Utilities.order!({ :bar => "barfoo", :foo => "foobar" }, [:foo, :bar]) }
 
       it { hash.should eql({ :foo => "foobar", :bar => "barfoo" }) }
     end
 
     context "missing element" do
-      let(:hash) { Scholar::Utilities.order!([:foo, :bar], { :bar => "barfoo"}) }
+      let(:hash) { Scholar::Utilities.order!({ :bar => "barfoo"}, [:foo, :bar]) }
 
       it { hash.should eql({ :bar => "barfoo" }) }
     end

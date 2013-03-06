@@ -9,8 +9,8 @@ module Scholar
 
       @data = options
 
-      @data = Scholar::Utilities.order!(source.sequence, @data)
-      @data = Scholar::Utilities.format!(source.rules, @data)
+      @data = Scholar::Utilities.order!(@datasource.sequence)
+      @data = Scholar::Utilities.format!(@data, source.rules)
     end
   end
 end
