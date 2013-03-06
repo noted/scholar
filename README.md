@@ -9,17 +9,15 @@ salinger = Scholar::Citation.new({
   :title => "The Catcher in the Rye",
   :contributors => [
     {
-      :type => :author,
+      :role => :author,
       :first => "J",
       :middle => "D",
       :last => "Salinger"
     }
   ],
-  :publication => {
-    :name => "Little, Brown",
-    :city => "Boston",
-    :year => "1995"
-  }
+  :publisher => "Little, Brown",
+  :city => "Boston",
+  :year => "1995"
 })
 salinger.html # => Salinger, J. D. <u>Catcher in the Rye<\/u>. Boston: Little, Brown, 1995.
 ```
