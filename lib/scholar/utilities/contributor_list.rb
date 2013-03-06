@@ -3,7 +3,7 @@ module Scholar
     class ContributorList
       attr_accessor :contributors, :names
 
-      def initialize(arr)
+      def initialize(arr, role = :nonauthor)
         # If there are plain hashes in the array, make them Contributors
         arr.each do |v|
           if v.is_a?(Hash) or v.is_a?(ActiveSupport::OrderedHash)
@@ -13,7 +13,7 @@ module Scholar
 
         # Reorder the first Contributor to use last-name-first order
         arr.each do |v|
-          if arr.index(v) == 0
+          if arr.index(v) == 0 && role == :author
             v.reorder!(:last)
           else
             v.reorder!(:first)

@@ -2,11 +2,11 @@ module Scholar
   module Sources
     class Book < Scholar::Source
       sequence [
-        :author,
+        :authors,
         :title,
-        :editor,
-        :compiler,
-        :translator,
+        :editors,
+        :compilers,
+        :translators,
         :edition,
         :volume,
         :city,
@@ -17,7 +17,36 @@ module Scholar
       ]
 
       rules do
-        rule(:title) {|v| italicize(v) }
+        rule(:authors)     {|v| names(v, :authors) }
+        rule(:authors)     {|v| period(v) }
+
+        rule(:title)       {|v| italicize(v) }
+        rule(:title)       {|v| period(v) }
+
+        rule(:editors)     {|v| replace("Ed. #{names(v)}") }
+        rule(:editors)     {|v| period(v) }
+
+        rule(:compilers)   {|v| replace("Comp. #{names(v)}") }
+        rule(:compilers)   {|v| period(v) }
+
+        rule(:translators) {|v| replace("Trans. #{names(v)}") }
+        rule(:translators) {|v| period(v) }
+
+        rule(:edition)     {|v| replace("#{ordinal(v)} ed.") }
+        rule(:edition)     {|v| period(v) }
+
+        rule(:volume)      {|v| replace("Vol. #{v}") }
+        rule(:volume)      {|v| period(v) }
+
+        rule(:city)        {|v| colon(v) }
+
+        rule(:publisher)   {|v| comma(v) }
+
+        rule(:year)        {|v| period(v) }
+
+        rule(:media)       {|v| period(v) }
+
+        rule(:series)      {|v| period(v) }
       end
     end
   end
