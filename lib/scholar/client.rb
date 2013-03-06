@@ -1,6 +1,4 @@
 module Scholar
-
-  # Creates an instance of Scholar.
   class Client
     def initialize(options = {})
     end
