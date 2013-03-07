@@ -8,9 +8,7 @@ module Scholar
       @data = options
       @data.delete(:type)
 
-      # TO-DO: Separate out @data[:contributors] into @data[:authors], etc.
-      #@data = Scholar::Utilities.contributors!(@data)
-
+      @data = Scholar::Utilities.contributors!(@data)
       @data = Scholar::Utilities.order!(@data, source.sequence)
       @data = Scholar::Utilities.format!(@data, source.rules)
 

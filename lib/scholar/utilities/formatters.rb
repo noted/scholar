@@ -3,6 +3,10 @@ module Scholar
     module Formatters
       # TO-DO: Don't do anything if blank or nil.
 
+      def capitalize(str)
+        str.to_s.capitalize
+      end
+
       def carets(str)
         "&#60;#{str}&#62;"
       end

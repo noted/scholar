@@ -3,57 +3,40 @@ module Scholar
     class Contributor
       attr_accessor :data, :name
 
-      @@first = [
-        :type,
-        :first,
-        :middle,
-        :last,
-        :suffix
-      ]
-
-      @@last = [
-        :type,
-        :last,
-        :first,
-        :middle,
-        :suffix
-      ]
+      @@first = [ :type, :first, :middle, :last, :suffix ]
+      @@last  = [ :type, :last, :first, :middle, :suffix ]
 
       def initialize(hash, order = :first)
-        @data = order!(hash, order)
+        @data = hash
+        @order = order
 
-        @name = format!(@data)
+        @data = order_data(@data)
+        @name = create_name(@data)
       end
 
       def reorder!(order)
-        @data = order!(@data, order)
-        @name = format!(@data)
+        @order = order
+
+        @data = order_data(@data, order)
+        @name = create_name(@data)
 
         self
       end
 
-      def order?
-        @data.first[0]
-      end
-
       private
 
-      def order!(hash, method = :first)
+      def order_data(hash, method = @order)
         if method == :last
-          ordered = Scholar::Utilities.order!(@@last, hash)
+          ordered = Scholar::Utilities.order!(hash, @@last)
         else
-          ordered = Scholar::Utilities.order!(@@first, hash)
+          ordered = Scholar::Utilities.order!(hash, @@first)
         end
-
-        ordered[:order] = method
 
         ordered
       end
 
-      def format!(data)
+      def create_name(data)
         hash = data.clone
-
-        order = hash[:order]
 
         # Remove :role and :order
         [:role, :order].each do |k|
@@ -66,15 +49,16 @@ module Scholar
         end
 
         # Add comma after last name if last-name-first order or suffix exists
-        if order == :last || hash[:suffix]
+        if @order == :last || hash[:suffix]
           hash[:last] = "#{hash[:last]},"
         end
 
         # Add comma after middle name if last-name-first
-        if order == :last && hash[:middle]
+        if @order == :last && hash[:middle]
           hash[:middle] = "#{hash[:middle]},"
         end
 
+        # Now kiss!
         hash.values.compact.reject(&:empty?).join(' ').squish
       end
     end

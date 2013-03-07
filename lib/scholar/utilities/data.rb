@@ -6,33 +6,49 @@ module Scholar
       end
 
       def contributors!(hash)
-        arr = hash[:contributors]
+        raw = hash[:contributors]
 
-        # Make array of different roles.
-        # Add empty arrays with role keys.
-        # Add each to respective.
+        hash.delete(:contributors)
 
+        # Build list of roles.
         roles = []
-        arr.each do |c|
-          unless arr.include? c[:role]
+        raw.each do |c|
+          unless roles.include?(c[:role])
             roles << c[:role]
           end
         end
 
+        # End result hash.
+        contributors = {}
+
+        # Pluralize the roles and make a blank array for each of them in the hash.
         roles.each do |r|
-          hash[r] = []
+          r = r.to_s.pluralize.to_sym
+
+          contributors[r] = []
         end
 
-        arr.each do |c|
-          hash[c[:role]] << c
+        # Sort each contributor into respective array.
+        raw.each do |c|
+          contributors[c[:role].to_s.pluralize.to_sym] << c
+
+          c.delete(:role)
         end
 
-        hash.delete(:contributors)
+        # Make a ContributorList out of every role.
+        contributors.each do |role, list|
+          if role == :authors
+            contributors[role] = ContributorList.new(list, :author)
+          else
+            contributors[role] = ContributorList.new(list)
+          end
+        end
 
-        hash
+        # Merge and output that sucker.
+        hash.merge(contributors)
       end
 
-      def format!(hash, rules)
+      def format!(hash, rules = [])
         rules.each do |key, action|
           hash[key] = Scholar::Utilities.instance_eval do
             action.call(hash[key])
@@ -45,9 +61,9 @@ module Scholar
       def order!(hash, template)
         ordered = ActiveSupport::OrderedHash.new
 
-        template.each do |e|
-          if hash[e]
-            ordered[e] = hash[e]
+        template.each do |key|
+          if hash[key]
+            ordered[key] = hash[key]
           end
         end
 

@@ -4,29 +4,57 @@ module Scholar
       attr_accessor :contributors, :names
 
       def initialize(arr, role = :nonauthor)
+        @contributors = arr
+        @role = role
+
         # If there are plain hashes in the array, make them Contributors
-        arr.each do |v|
-          if v.is_a?(Hash) or v.is_a?(ActiveSupport::OrderedHash)
-            v[arr.index(v)] = Contributor.new(v)
-          end
-        end
+        @contributors = replace_hashes(@contributors)
 
         # Reorder the first Contributor to use last-name-first order
-        arr.each do |v|
-          if arr.index(v) == 0 && role == :author
-            v.reorder!(:last)
-          else
-            v.reorder!(:first)
+        @contributors = reorder_all(@contributors)
+
+        # Create the names.
+        @names = create_names(@contributors)
+      end
+
+      def to_s
+        @names
+      end
+
+      private
+
+      def replace_hashes(contributors)
+        contributors.each do |c|
+          if c.is_a?(Hash)
+            contributors[contributors.index(c)] = Contributor.new(c)
           end
         end
 
-        @contributors = arr
+        contributors
+      end
 
-        @names = ""
-        @contributors.each do |c|
-          @names << "#{c.name}, "
+      def reorder_all(contributors)
+        contributors.each do |c|
+          if contributors.index(c) == 0 && @role == :author
+            c.reorder!(:last)
+          else
+            c.reorder!(:first)
+          end
         end
-        @names = @names[0..-3]
+
+        contributors
+      end
+
+      def create_names(contributors)
+        names = ""
+
+        contributors.each do |c|
+          names << "#{c.name}, "
+        end
+
+        names = names[0..-3]
+
+        names
       end
     end
   end
