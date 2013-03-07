@@ -50,8 +50,10 @@ module Scholar
 
       def format!(hash, rules = [])
         rules.each do |key, action|
-          hash[key] = Scholar::Utilities.instance_eval do
-            action.call(hash[key])
+          unless hash[key].nil?
+            hash[key] = Scholar::Utilities.instance_eval do
+              action.call(hash[key])
+            end
           end
         end
 

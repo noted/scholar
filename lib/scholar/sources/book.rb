@@ -17,18 +17,19 @@ module Scholar
       ]
 
       rules do
+        rule(:authors)     {|v| contributors(v) }
         rule(:authors)     {|v| period(v) }
 
         rule(:title)       {|v| italicize(v) }
         rule(:title)       {|v| period(v) }
 
-        rule(:editors)     {|v| replace("Ed. #{v}") }
+        rule(:editors)     {|v| replace("Ed. #{contributors(v)}") }
         rule(:editors)     {|v| period(v) }
 
-        rule(:compilers)   {|v| replace("Comp. #{v}") }
+        rule(:compilers)   {|v| replace("Comp. #{contributors(v)}") }
         rule(:compilers)   {|v| period(v) }
 
-        rule(:translators) {|v| replace("Trans. #{v}") }
+        rule(:translators) {|v| replace("Trans. #{contributors(v)}") }
         rule(:translators) {|v| period(v) }
 
         rule(:edition)     {|v| replace("#{ordinal(v)} ed.") }

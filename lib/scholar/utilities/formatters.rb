@@ -1,54 +1,50 @@
 module Scholar
   class Utilities
     module Formatters
-      # TO-DO: Don't do anything if blank or nil.
-
-      def capitalize(str)
+      def capitalize(str = nil)
         str.to_s.capitalize
       end
 
-      def carets(str)
-        "&#60;#{str}&#62;"
+      def carets(str = nil)
+        "&#60;#{str.to_s}&#62;"
       end
 
-      def colon(str)
-        "#{str}:"
+      def colon(str = nil)
+        "#{str.to_s}:"
       end
 
-      def comma(str)
-        "#{str},"
+      def comma(str = nil)
+        "#{str.to_s},"
       end
 
-      def names(arr, role)
-        Scholar::Utilities::ContributorList.new(arr, role)
-      end
-
-      def italicize(str, hash = nil)
-        if hash
-          hash[str] = "<em>#{hash[str.to_sym]}</em>"
-        else
-          "<em>#{str}</em>"
+      def contributors(list)
+        if list
+          list.to_s
         end
       end
 
-      def ordinal(int)
+      def italicize(str = nil)
+        "<em>#{str.to_s}</em>"
+      end
+
+      def ordinal(int = nil)
         ActiveSupport::Inflector.ordinalize(int.to_i)
       end
 
-      def period(str)
-        "#{str}."
+      def period(str = nil)
+        "#{str.to_s}."
       end
 
-      def quotes(str)
-        "&#8220;#{str}&#8221;"
+      def quotes(str = nil)
+        "&#8220;#{str.to_s}&#8221;"
       end
 
-      def replace(str)
-        str
+      def replace(str = nil)
+        str.to_s
       end
 
-      def underline(str)
-        "<u>#{str}</u>"
+      def underline(str = nil)
+        "<u>#{str.to_s}</u>"
       end
     end
   end
