@@ -3,8 +3,8 @@ module Scholar
     class Contributor
       attr_accessor :data, :name
 
-      @@first = [ :type, :first, :middle, :last, :suffix ]
-      @@last  = [ :type, :last, :first, :middle, :suffix ]
+      FIRST = [ :type, :first, :middle, :last, :suffix ]
+      LAST  = [ :type, :last, :first, :middle, :suffix ]
 
       def initialize(hash, order = :first)
         @data = hash
@@ -27,9 +27,9 @@ module Scholar
 
       def order_data(hash, method = @order)
         if method == :last
-          ordered = Scholar::Utilities.order!(hash, @@last)
+          ordered = Scholar::Utilities.order!(hash, LAST)
         else
-          ordered = Scholar::Utilities.order!(hash, @@first)
+          ordered = Scholar::Utilities.order!(hash, FIRST)
         end
 
         ordered

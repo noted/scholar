@@ -1,49 +1,49 @@
 module Scholar
   class Utilities
     module Formatters
-      def capitalize(str = nil)
+      def capitalize(str)
         str.to_s.capitalize
       end
 
-      def carets(str = nil)
+      def carets(str)
         "&#60;#{str.to_s}&#62;"
       end
 
-      def colon(str = nil)
+      def colon(str)
         "#{str.to_s}:"
       end
 
-      def comma(str = nil)
+      def comma(str)
         "#{str.to_s},"
       end
 
       def contributors(list)
-        if list
+        if list.is_a?(ContributorList)
           list.to_s
         end
       end
 
-      def italicize(str = nil)
+      def italicize(str)
         "<em>#{str.to_s}</em>"
       end
 
-      def ordinal(int = nil)
+      def ordinal(int)
         ActiveSupport::Inflector.ordinalize(int.to_i)
       end
 
-      def period(str = nil)
+      def period(str)
         "#{str.to_s}."
       end
 
-      def quotes(str = nil)
+      def quotes(str)
         "&#8220;#{str.to_s}&#8221;"
       end
 
-      def replace(str = nil)
+      def replace(str)
         str.to_s
       end
 
-      def underline(str = nil)
+      def underline(str)
         "<u>#{str.to_s}</u>"
       end
     end
