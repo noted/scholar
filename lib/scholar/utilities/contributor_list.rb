@@ -15,10 +15,8 @@ module Scholar
 
         # Create the names.
         @names = create_names(@contributors)
-      end
 
-      def to_s
-        @names
+        return self
       end
 
       private

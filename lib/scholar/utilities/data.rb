@@ -38,9 +38,9 @@ module Scholar
         # Make a ContributorList out of every role.
         contributors.each do |role, list|
           if role == :authors
-            contributors[role] = ContributorList.new(list, :author).to_s
+            contributors[role] = ContributorList.new(list, :author).names
           else
-            contributors[role] = ContributorList.new(list).to_s
+            contributors[role] = ContributorList.new(list).names
           end
         end
 
