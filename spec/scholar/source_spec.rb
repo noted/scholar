@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe Scholar::Source do
   let(:s) { Scholar::Source }
