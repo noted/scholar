@@ -3,8 +3,8 @@ module Scholar
     class Contributor
       attr_accessor :data, :name
 
-      FIRST = [ :type, :first, :middle, :last, :suffix ]
-      LAST  = [ :type, :last, :first, :middle, :suffix ]
+      FIRST = [ :role, :first, :middle, :last, :suffix ]
+      LAST  = [ :role, :last, :first, :middle, :suffix ]
 
       def initialize(hash, order = :first)
         @data = hash
@@ -45,7 +45,7 @@ module Scholar
 
         # Shorten middle name to initial.
         if hash[:middle]
-          hash[:middle] = "#{hash[:middle][0,1]}."
+          hash[:middle] = "#{hash[:middle][0,1].upcase}."
         end
 
         # Add comma after last name if last-name-first order or suffix exists

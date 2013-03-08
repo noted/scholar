@@ -28,7 +28,9 @@ describe Scholar::Utilities::Formatters do
   end
 
   describe ".contributors" do
-    it "returns names of ContributorList"
+    let(:str) { s.contributors(build(:contributors, :author)) }
+
+    it { str.should eql "Green, John, Douglas N. Adams, Neil D. Tyson, PhD" }
   end
 
   describe ".italicize" do
