@@ -17,12 +17,6 @@ module Scholar
         "#{str.to_s},"
       end
 
-      def contributors(list)
-        if list.is_a?(ContributorList)
-          list.to_s
-        end
-      end
-
       def italicize(str)
         "<em>#{str.to_s}</em>"
       end

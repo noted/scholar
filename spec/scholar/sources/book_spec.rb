@@ -39,7 +39,7 @@ describe Scholar::Sources::Book do
   end
 
   let(:citation) do
-    "Adams, Douglas. <em>The Hitchhiker's Guide to the Galaxy</em>. Ed. Peter Guzzardi. Comp. Eion Colfer. Trans. Les Grossman. 1st ed. Vol. 1. London: Random House, 1972. Print. The Hitchhiker's Guide to the Galaxy."
+    "Adams, Douglas N. <em>The Hitchhiker's Guide to the Galaxy</em>. Ed. Peter Guzzardi. Comp. Eion Colfer. Trans. Les Grossman. 1st ed. Vol. 1. London: Random House, 1972. Print. The Hitchhiker's Guide to the Galaxy."
   end
 
   let(:c) { Scholar::Citation.new(data) }

@@ -20,6 +20,10 @@ module Scholar
         @data = order_data(@data, order)
         @name = create_name(@data)
 
+        if @name[-2, 2] == ".,"
+          @name = @name[0..-3]
+        end
+
         self
       end
 
