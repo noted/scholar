@@ -5,11 +5,7 @@ describe Scholar::Utilities::Data do
 
   describe "#concatenate!" do
     let(:hash) do
-      {
-        :foo => "bar ",
-        :bar => "foo",
-        :foobar => "barfoo"
-      }
+      { :foo => "bar ", :bar => "foo", :foobar => "barfoo" }
     end
 
     let(:c) { s.concatenate!(hash) }
@@ -64,10 +60,7 @@ describe Scholar::Utilities::Data do
 
   describe "#format!" do
     let(:hash) do
-      {
-        :foo => "Barfoo",
-        :bar => "Foobar"
-      }
+      { :foo => "Barfoo", :bar => "Foobar" }
     end
 
     let(:rules) do
@@ -78,10 +71,7 @@ describe Scholar::Utilities::Data do
     end
 
     let(:result) do
-      {
-        :foo => "<em>Barfoo</em>",
-        :bar => "<u>Foobar</u>"
-      }
+      { :foo => "<em>Barfoo</em>", :bar => "<u>Foobar</u>" }
     end
 
     let(:c) { s.format!(hash, rules) }
@@ -91,19 +81,11 @@ describe Scholar::Utilities::Data do
 
   describe "#order!" do
     let(:hash) do
-      {
-        :foobar => "Foo to the bar to the foo.",
-        :bar => "Hello there.",
-        :abc => "123",
-      }
+      { :foobar => "Foo to the bar to the foo.", :bar => "Hello there.", :abc => "123" }
     end
 
     let(:sequence) do
-      [
-        :abc,
-        :foobar,
-        :bar
-      ]
+      [ :abc, :foobar, :bar ]
     end
 
     let(:h) { s.order!(hash, sequence) }
