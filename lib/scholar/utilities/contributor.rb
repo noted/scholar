@@ -7,18 +7,17 @@ module Scholar
       LAST  = [ :role, :last, :first, :middle, :suffix ]
 
       def initialize(hash, order = :first)
-        @data = hash
         @order = order
 
-        @data = order_data(@data)
-        @name = create_name(@data)
+        @attributes = order_attrs(hash)
+        @name = create_name(@attributes)
       end
 
       def reorder!(order)
         @order = order
 
-        @data = order_data(@data, order)
-        @name = create_name(@data)
+        @attributes = order_attrs(@attributes, order)
+        @name = create_name(@attributes)
 
         if @name[-2, 2] == ".,"
           @name = @name[0..-3]
@@ -29,7 +28,7 @@ module Scholar
 
       private
 
-      def order_data(hash, method = @order)
+      def order_attrs(hash, method = @order)
         if method == :last
           ordered = Scholar::Utilities.order!(hash, LAST)
         else
