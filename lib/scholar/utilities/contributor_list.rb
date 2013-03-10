@@ -6,13 +6,13 @@ module Scholar
       def initialize(contributors, role = :nonauthor)
         @names = ""
 
-        contributors.each do |c| # To-do: combine this loop...
+        contributors.each do |c|
           if c.is_a?(Hash)
             contributors[contributors.index(c)] = Contributor.new(c)
           end
         end
 
-        contributors.each do |c| # ...and this loop.
+        contributors.each do |c|
           if contributors.index(c) == 0 && role == :author
             c.reorder!(:last)
           else

@@ -6,7 +6,7 @@ module Scholar
           @@sequence = arr
         end
 
-        self.descendants.empty? ? @@sequence : nil # Hackety-hax: fix inheritance issues.
+        self.descendants.empty? ? @@sequence : nil
       end
 
       def rules(&block)
