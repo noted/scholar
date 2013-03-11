@@ -6,8 +6,10 @@ module Scholar
     class << self
 
       # Defines the order of attributes for Sources.
-      # @param  arr [Array] The order in which attributes are ordered.
-      # @return nil
+      #
+      # ==== Attributes
+      #
+      # * +arr+ - Array of Symbols (keys). This is the order the hash's key will be in.
       def sequence(arr = nil)
         unless arr.nil?
           @@sequence = arr
@@ -17,8 +19,16 @@ module Scholar
       end
 
       # Defines what actions need to be taken on the attributes.
-      # @param  block [Proc] An array of rules.
-      # @return nil
+      #
+      # ==== Attributes
+      #
+      # * +block+ - A block of +rule+ definitions. The rule definition should call a method in Scholar::Utilities::Formatters.
+      #
+      # ==== Example
+      #
+      #   rules do
+      #     rule(:foo) {|v| italicize(v) }
+      #   end
       def rules(&block)
         if block
           @@rules ||= []
@@ -30,8 +40,11 @@ module Scholar
       end
 
       # Defines a specific action to be taken on an attribute.
-      # @param key    [Symbol] The key of the attribute.
-      # @param action [Proc]   The action to take on the key (from Scholar::Utilities).
+      #
+      # ==== Attributes
+      #
+      # * +key+ - The key of the hash to take the action on. Symbol.
+      # * +action+ - The action to take on the key. Should be a method within Scholar::Utilities::Formatters.
       def rule(key, &action)
         @@rules << [key, action]
       end
