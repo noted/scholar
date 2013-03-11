@@ -1,6 +1,18 @@
 # Scholar [![Build Status](https://secure.travis-ci.org/noted/scholar.png)](https://travis-ci.org/noted/scholar)
 
-Scholar is a Ruby library for building [MLA citations](http://www.mla.org/) for scholarly works.
+Scholar is a Ruby library for building [MLA citations](http://www.mla.org/) for scholarly works. Just pass Scholar your data and it'll do the rest.
+
+## Installation
+
+```
+(sudo) gem install scholar
+```
+
+```
+gem 'scholar'
+```
+
+## Usage
 
 ```ruby
 salinger = Scholar::Citation.new({
@@ -22,7 +34,6 @@ salinger = Scholar::Citation.new({
 salinger.html # => Salinger, J. D. <em>Catcher in the Rye</em>. Boston: Little, Brown, 1995.
 ```
 
-## Usage
 
 To create a citation, you pass `Scholar::Citation` a hash with the attributes associated with the source. See the specific type on [the wiki](https://github.com/noted/scholar/wiki/Supported-Types) for the attributes available.
 
