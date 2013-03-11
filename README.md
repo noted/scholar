@@ -1,6 +1,6 @@
 # Scholar [![Build Status](https://secure.travis-ci.org/noted/scholar.png)](https://travis-ci.org/noted/scholar)
 
-Scholar is a Ruby library for building [MLA citations](http://www.mla.org/).
+Scholar is a Ruby library for building [MLA citations](http://www.mla.org/) for scholarly works.
 
 ```ruby
 salinger = Scholar::Citation.new({
@@ -19,5 +19,7 @@ salinger = Scholar::Citation.new({
   :city => "Boston",
   :year => "1995"
 })
-salinger.html # => Salinger, J. D. <u>Catcher in the Rye<\/u>. Boston: Little, Brown, 1995.
+salinger.html # => Salinger, J. D. <em>Catcher in the Rye</em>. Boston: Little, Brown, 1995.
 ```
+
+For documentation on the attributes of each source type, [see the wiki](https://github.com/noted/scholar/wiki/Supported-Types).
