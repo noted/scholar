@@ -73,6 +73,10 @@ module Scholar
           hash.delete(k)
         end
 
+        if hash[:first].length == 1
+          hash[:first] = "#{hash[:first]}."
+        end
+
         if hash[:middle]
           hash[:middle] = "#{hash[:middle][0,1].upcase}."
         end
