@@ -1,18 +1,53 @@
 module Scholar
-  class Citation
-    attr_accessor :data, :html
 
+  # A Citation object containing the attributes of the
+  # citation and the HTML citation itself.
+  class Citation
+
+    # The pieces of data in the Citation.
+    attr_reader :attributes
+
+    # The actual HTML citation.
+    attr_reader :html
+
+    # Creates a new Citation from the given attributes.
+    #
+    # ==== Attributes
+    #
+    # * +options+ - The attributes of the Citation.
+    #
+    # ==== Options
+    #
+    # * +:type+ - Not optional. The type of source you are citing.
+    # * +:contributors+ - An array of hashes of contributors.
+    #
+    # ==== Examples
+    #
+    #   citation = Scholar::Citation.new({
+    #     :type => :book,
+    #     :title => "Foobar",
+    #     :contributors => [
+    #       {
+    #         :role => :author,
+    #         :first => "John",
+    #         :last => "Sample"
+    #       }
+    #     ]
+    #   })
+    #
+    # Obviously, you'd include more than that, but you need to see the
+    # specific sources for more documentation.
     def initialize(options = {})
       source = "Scholar::Sources::#{options[:type].to_s.camelize}".constantize
 
-      @data = options
-      @data.delete(:type)
+      @attributes = options
+      @attributes.delete(:type)
 
-      @data = Scholar::Utilities.contributors!(@data)
-      @data = Scholar::Utilities.order!(@data, source.sequence)
-      @data = Scholar::Utilities.format!(@data, source.rules)
+      @attributes = Scholar::Utilities.contributors!(@attributes)
+      @attributes = Scholar::Utilities.order!(@attributes, source.sequence)
+      @attributes = Scholar::Utilities.format!(@attributes, source.rules)
 
-      @html = Scholar::Utilities.concatenate!(@data)
+      @html = Scholar::Utilities.concatenate!(@attributes)
     end
   end
 end

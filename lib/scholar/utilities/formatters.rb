@@ -1,14 +1,26 @@
 module Scholar
   class Utilities
+
+    # String formatters.
     module Formatters
+
+      # Capitalize the first character of a String.
+      # @param  str [String] String to capitalize.
+      # @return [String]
       def capitalize(str)
         str.to_s.capitalize
       end
 
+      # Add carets (<>) around String.
+      # @param  str [String]
+      # @return [String]
       def carets(str)
         "&#60;#{str.to_s}&#62;"
       end
 
+      # Add colon to the end of a String.
+      # @param  str [String]
+      # @return String
       def colon(str)
         "#{str.to_s}:"
       end

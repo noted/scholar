@@ -1,4 +1,6 @@
 module Scholar
+
+  # Manifest various utilities.
   class Utilities
     Dir[File.dirname(__FILE__) + '/utilities/*.rb'].each {|file| require file }
 

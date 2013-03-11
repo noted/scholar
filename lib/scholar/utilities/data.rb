@@ -1,14 +1,21 @@
 module Scholar
   class Utilities
     module Data
-      def concatenate!(hash)
-        hash.values.compact.reject(&:empty?).join(' ').squish
+
+      # Concatenates hashes values into space-separated String.
+      # @param  attributes [Hash] Hash to concatenate.
+      # @return [String]
+      def concatenate!(attributes)
+        attributes.values.compact.reject(&:empty?).join(' ').squish
       end
 
-      def contributors!(hash)
-        data = hash[:contributors]
+      # Take contributors in hash and makes a ContributorList for each role.
+      # @param  attributes [Hash] The attributes of the Citation.
+      # @return [Hash]
+      def contributors!(attributes)
+        data = attributes[:contributors]
 
-        hash.delete(:contributors)
+        attributes.delete(:contributors)
 
         contributors = {}
         data.each do |c|
@@ -29,21 +36,29 @@ module Scholar
           end
         end
 
-        hash.merge(contributors)
+        attributes.merge(contributors)
       end
 
-      def format!(hash, rules = [])
+      # Formats the keys of a hash with given rules.
+      # @param  attributes [Hash]  The attributes of the Citation.
+      # @param  rules      [Array] An array of key and Proc values.
+      # @return [Hash]
+      def format!(attributes, rules = [])
         rules.each do |key, action|
-          unless hash[key].nil?
-            hash[key] = Scholar::Utilities.instance_eval do
-              action.call(hash[key])
+          unless attributes[key].nil?
+            attributes[key] = Scholar::Utilities.instance_eval do
+              action.call(attributes[key])
             end
           end
         end
 
-        hash
+        attributes
       end
 
+      # Re-orders a hash based on a template.
+      # @param  hash [Hash] The hash to order.
+      # @param  template [Array] An array of Symbols.
+      # @return [ActiveSupport::OrderedHash]
       def order!(hash, template)
         ordered = ActiveSupport::OrderedHash.new
 
