@@ -45,9 +45,11 @@ module Scholar
 
       @attributes = Scholar::Utilities.contributors!(@attributes)
       @attributes = Scholar::Utilities.order!(@attributes, source.sequence)
-      @attributes = Scholar::Utilities.format!(@attributes, source.rules)
 
-      @html = Scholar::Utilities.concatenate!(@attributes)
+      attributes = @attributes.clone
+      attributes = Scholar::Utilities.format!(attributes, source.rules)
+
+      @html = Scholar::Utilities.concatenate!(attributes)
     end
   end
 end
