@@ -1,8 +1,34 @@
 module Scholar
   class Utilities
-    class ContributorList
-      attr_accessor :contributors, :names
 
+    # A list of Contributors.
+    class ContributorList
+
+      # An Array of Contributors.
+      attr_reader :contributors
+
+      # The names in MLA format.
+      attr_reader :names
+
+      # Create a list of Contributors.
+      #
+      # ==== Attributes
+      #
+      # * +contributors+ - An Array of Contributors or an Array of Hashes.
+      # * +role+ - Either +:author:+ or +:nonauthor+.
+      #
+      # ==== Examples
+      #
+      #   Scholar::Utilities::ContributorList.new([
+      #     {
+      #       :first => "Douglas",
+      #       :last => "Adams"
+      #     },
+      #     {
+      #       :first => "Eion",
+      #       :last => "Colfer"
+      #     }
+      #   ])
       def initialize(contributors, role = :nonauthor)
         @names = ""
 

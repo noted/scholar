@@ -1,8 +1,32 @@
 module Scholar
   class Utilities
-    class Contributor
-      attr_accessor :data, :name
 
+    # A person associated with a work.
+    class Contributor
+
+      # The data associated with the person.
+      attr_reader :attributes
+
+      # The name in the correct format.
+      attr_reader :name
+
+      # Create a Contributor.
+      #
+      # ==== Attributes
+      #
+      # * +hash+ - The data associated with the Contributor.
+      # * +order+ - Last-name first (+:last+) or first-name first (+:first+).
+      #
+      # ==== Options
+      #
+      # * +:first+ - The name of the Contributor.
+      # * +:middle+ - The middle name of the Contributor. Will be shortened to an initial.
+      # * +:last+ - The surname of the Contributor.
+      # * +:suffix+ - The suffix of the Contributor (PhD, Esq, etc).
+      #
+      # ==== Examples
+      #
+      #   Scholar::Utilities::Contributor.new({:first => "Douglas", :last => "Adams"})
       def initialize(hash, order = :first)
         @order = order
 
@@ -10,6 +34,11 @@ module Scholar
         @name = name!(@attributes)
       end
 
+      # Reorders the name of the Contributor with the given order.
+      #
+      # ==== Attributes
+      #
+      # * +order+ - Either +:first+ or +:last+ name first.
       def reorder!(order)
         @order = order
 
@@ -25,6 +54,7 @@ module Scholar
 
       private
 
+      # Order according to the sequence.
       def order!(hash, method = @order)
         if method == :last
           sequence = [:role, :last, :first, :middle, :suffix]
@@ -35,6 +65,7 @@ module Scholar
         ordered = Scholar::Utilities.order!(hash, sequence)
       end
 
+      # Generate the name with the given hash.
       def name!(attributes)
         hash = attributes.clone
 

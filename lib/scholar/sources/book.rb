@@ -1,5 +1,7 @@
 module Scholar
   module Sources
+
+    # A normal book.
     class Book < Scholar::Source
       sequence [
         :authors,

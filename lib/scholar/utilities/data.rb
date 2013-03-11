@@ -1,17 +1,16 @@
 module Scholar
   class Utilities
+
+    # Utilities for dealing with hashes and actually creating the
+    # citations.
     module Data
 
       # Concatenates hashes values into space-separated String.
-      # @param  attributes [Hash] Hash to concatenate.
-      # @return [String]
       def concatenate!(attributes)
         attributes.values.compact.reject(&:empty?).join(' ').squish
       end
 
       # Take contributors in hash and makes a ContributorList for each role.
-      # @param  attributes [Hash] The attributes of the Citation.
-      # @return [Hash]
       def contributors!(attributes)
         data = attributes[:contributors]
 
@@ -40,9 +39,6 @@ module Scholar
       end
 
       # Formats the keys of a hash with given rules.
-      # @param  attributes [Hash]  The attributes of the Citation.
-      # @param  rules      [Array] An array of key and Proc values.
-      # @return [Hash]
       def format!(attributes, rules = [])
         rules.each do |key, action|
           unless attributes[key].nil?
@@ -56,9 +52,6 @@ module Scholar
       end
 
       # Re-orders a hash based on a template.
-      # @param  hash [Hash] The hash to order.
-      # @param  template [Array] An array of Symbols.
-      # @return [ActiveSupport::OrderedHash]
       def order!(hash, template)
         ordered = ActiveSupport::OrderedHash.new
 

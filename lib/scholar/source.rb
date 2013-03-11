@@ -51,5 +51,9 @@ module Scholar
     end
   end
 
+  # A collection of different source types.
+  module Sources
+  end
+
   Dir[File.dirname(__FILE__) + '/sources/*.rb'].each {|file| require file }
 end
