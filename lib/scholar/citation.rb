@@ -4,6 +4,9 @@ module Scholar
   # citation and the HTML citation itself.
   class Citation
 
+    # The raw hash given Citation.
+    attr_reader :raw
+
     # The pieces of data in the Citation.
     attr_reader :attributes
 
@@ -41,6 +44,7 @@ module Scholar
       source = "Scholar::Sources::#{options[:type].to_s.camelize}".constantize
 
       @attributes = options
+      @raw = @attributes.clone
       @attributes.delete(:type)
 
       @attributes = Scholar::Utilities.contributors!(@attributes)
