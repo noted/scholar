@@ -55,5 +55,21 @@ module Scholar
 
       @html = Scholar::Utilities.concatenate!(attributes)
     end
+
+    # Returns the Citation object in Hash form.
+    def to_hash
+      hash = {}
+
+      instance_variables.each do |v|
+        hash[v.to_s[1..-1].to_sym] = instance_variable_get(v)
+      end
+
+      hash
+    end
+
+    # Returns the Citation object in JSON form.
+    def to_json
+      hash = self.to_hash.to_json
+    end
   end
 end
