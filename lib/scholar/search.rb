@@ -18,6 +18,9 @@ module Scholar
         f.adapter  Faraday.default_adapter
       end
 
+      # Remember the query.
+      @query = query
+
       # Get the raw data.
       @results = perform!(query)
 
