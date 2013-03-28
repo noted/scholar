@@ -11,6 +11,9 @@ end
 group :test do
   gem 'rspec'
 
+  gem 'vcr'
+  gem 'webmock', '~> 1.8.0'
+
   gem 'factory_girl'
 
   gem 'spork'
