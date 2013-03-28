@@ -14,6 +14,8 @@ gem 'scholar'
 
 ## Usage
 
+### Citation
+
 ```ruby
 salinger = Scholar::Citation.new({
   :type => :book,
@@ -37,14 +39,14 @@ salinger.html # => Salinger, J. D. <em>Catcher in the Rye</em>. Boston: Little, 
 
 To create a citation, you pass `Scholar::Citation` a hash with the attributes associated with the source. See the specific type on [the wiki](https://github.com/noted/scholar/wiki/Supported-Types) for the attributes available.
 
-### Global Attributes
+#### Global Attributes
 
 All source types can take these fields.
 
 * `:type` &mdash; The type of publication you're citing ([see the wiki for a list of supported types](https://github.com/noted/scholar/wiki/Supported-Types)).
 * `:contributors` &mdash; An array of contributors (see below for details).
 
-#### Contributors
+##### Contributors
 
 The `:contributors` key is an array of hashes that define contributors. Here's an example.
 
@@ -87,6 +89,13 @@ Each hash can take the following fields:
 * `:middle` &mdash; The person's middle name (will convert to middle initial).
 * `:last` &mdash; The person's surname.
 * `:suffix` &mdash; Any suffixes the person has ("PhD", "Esq", "Jr", etc). Omit periods.
+
+### Search
+
+```ruby
+search = Scholar::Search.new("harry potter")
+search.results # => [#<Scholar::Citation>, #<Scholar::Citation>, ...]
+```
 
 ## Contributing
 
