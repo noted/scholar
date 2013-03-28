@@ -3,7 +3,7 @@ module Scholar
   # A Search object containing search results
   # for a query (currently only searches the
   # Google Books API).
-  class Source
+  class Search
 
     # The query performed.
     attr_reader :query
@@ -22,6 +22,7 @@ module Scholar
       @results = perform!(query)
 
       # Turn that data into something a Citation class can understand.
+      @results = format!(@results)
 
       # Make a Citation for each.
 
@@ -31,12 +32,23 @@ module Scholar
     private
 
     def perform!(query)
-      @@connection.get do |r|
-        r.get "/books/v1/volumes", :q => query
+      request = @@connection.get do |r|
+        r.url "/books/v1/volumes", :q => query
       end
+
+      request.body
     end
 
-    def format!(json)
+    def format!(hash)
+      arr = []
+
+      hash["items"].each do |i|
+        vol = i["volumeInfo"]
+
+        arr << vol["title"]
+      end
+
+      arr
     end
   end
 end

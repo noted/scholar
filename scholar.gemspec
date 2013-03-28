@@ -20,5 +20,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'activesupport', '~> 3.2.11'
   gem.add_dependency 'faraday', '~> 0.8.7'
-  gem.add_dependency 'oj', '~> 2.0.10'
+  gem.add_dependency 'faraday_middleware', '~> 0.9.0'
 end

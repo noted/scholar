@@ -4,7 +4,7 @@ PATH
     scholar (0.1.0)
       activesupport (~> 3.2.11)
       faraday (~> 0.8.7)
-      oj (~> 2.0.10)
+      faraday_middleware (~> 0.9.0)
 
 GEM
   remote: https://rubygems.org/
@@ -20,6 +20,8 @@ GEM
       activesupport (>= 3.0.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
     fuubar (1.1.0)
       rspec (~> 2.0)
       rspec-instafail (~> 0.2.0)
@@ -29,7 +31,6 @@ GEM
     method_source (0.8.1)
     multi_json (1.5.0)
     multipart-post (1.2.0)
-    oj (2.0.10)
     parallel (0.6.1)
     pry (0.9.11.4)
       coderay (~> 1.0.5)

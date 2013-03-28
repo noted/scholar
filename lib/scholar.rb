@@ -1,6 +1,9 @@
+require 'json'
+
 require 'active_support/all'
+
 require 'faraday'
-require 'oj'
+require 'faraday_middleware'
 
 require_relative 'scholar/utilities'
 require_relative 'scholar/citation'
