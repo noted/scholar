@@ -4,17 +4,29 @@ Scholar is a Ruby library for building [MLA citations](http://www.mla.org/) for 
 
 ## Installation
 
-```
-(sudo) gem install scholar
+Add this line to your `Gemfile`:
+
+```ruby
+gem 'scholar'
 ```
 
+And then run:
+
 ```
-gem 'scholar'
+$ bundle install
+```
+
+Or install system-wide with:
+
+```
+$ gem install scholar
 ```
 
 ## Usage
 
 ### Citation
+
+To create a citation, create a new `Citation` object.
 
 ```ruby
 salinger = Scholar::Citation.new({
@@ -36,15 +48,18 @@ salinger = Scholar::Citation.new({
 salinger.html # => Salinger, J. D. <em>Catcher in the Rye</em>. Boston: Little, Brown, 1995.
 ```
 
+`Scholar::Citation.new` only takes a `Hash` with the attributes associated with the source.
 
-To create a citation, you pass `Scholar::Citation` a hash with the attributes associated with the source. See the specific type on [the wiki](https://github.com/noted/scholar/wiki/Supported-Types) for the attributes available.
+### Required Keys
 
 #### Global Attributes
 
-All source types can take these fields.
+All source types can (and must) take these fields.
 
-* `:type` &mdash; The type of publication you're citing ([see the wiki for a list of supported types](https://github.com/noted/scholar/wiki/Supported-Types)).
-* `:contributors` &mdash; An array of contributors (see below for details).
+Key             | Description
+----------------|-----------------------------------------
+`:type`         | The type of publication you're citing ([see the wiki for a list of supported types](types)). Must be a `Symbol` object.
+`:contributors` | An array of contributors (see below for details). If there are no contributors, pass an empty `Array`.
 
 ##### Contributors
 
@@ -82,13 +97,19 @@ The `:contributors` key is an array of hashes that define contributors. Here's a
 ]
 ```
 
-Each hash can take the following fields:
+Each hash can take the following key-values:
 
-* `:role` &mdash; Can be `:author`, `:editor`, `:translator`, `:compiler`.
-* `:first` &mdash; The person's name.
-* `:middle` &mdash; The person's middle name (will convert to middle initial).
-* `:last` &mdash; The person's surname.
-* `:suffix` &mdash; Any suffixes the person has ("PhD", "Esq", "Jr", etc). Omit periods.
+Key       | Description
+----------|---------------------------------------
+`:role`   | Must be `:author`, `:editor`, `:translator`, `:compiler`.
+`:first`  | The contributor's first name (name).
+`:middle` | The contributor's middle name (will be shortened to a middle initial).
+`:last`   | The contributor's last name (surname).
+`:suffix` | Any suffixes or titles the contributor has ("PhD", "Esq", "Jr", "KBD", et cetera). Omit any periods.
+
+## Supported Ruby Versions
+
+Scholar is tested on MRI version 1.9.2, 1.9.3, and 2.0.0.
 
 ### Search
 
@@ -109,6 +130,7 @@ search.results # => [#<Scholar::Citation>, #<Scholar::Citation>, ...]
 8. Add, commit, and push your changes.
 9. [Submit a pull request.][pr]
 
+[types]: https://github.com/noted/scholar/wiki/Supported-Types
 [fork]: http://help.github.com/fork-a-repo/
 [branch]: http://learn.github.com/p/branching.html
 [pr]: http://help.github.com/send-pull-requests/
