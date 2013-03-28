@@ -47,7 +47,10 @@ module Scholar
       @raw = @attributes.clone
       @attributes.delete(:type)
 
-      @attributes = Scholar::Utilities.contributors!(@attributes)
+      if @attributes[:contributors]
+        @attributes = Scholar::Utilities.contributors!(@attributes)
+      end
+
       @attributes = Scholar::Utilities.order!(@attributes, source.sequence)
 
       attributes = @attributes.clone
