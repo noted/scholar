@@ -48,7 +48,14 @@ module Scholar
       hash["items"].each do |i|
         vol = i["volumeInfo"]
 
-        arr << vol["title"]
+        citation = Scholar::Citation.new({
+          :type => :book,
+          :title => vol["title"],
+          :publisher => vol["publisher"],
+          :year => vol["publishedDate"][0,4]
+        })
+
+        arr << citation
       end
 
       arr

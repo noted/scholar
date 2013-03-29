@@ -14,7 +14,7 @@ module Scholar
       #
       # ==== Attributes
       #
-      # * +hash+ - The data associated with the Contributor.
+      # * +data+ - The data associated with the Contributor.
       # * +order+ - Last-name first (+:last+) or first-name first (+:first+).
       #
       # ==== Options
@@ -27,10 +27,10 @@ module Scholar
       # ==== Examples
       #
       #   Scholar::Utilities::Contributor.new({:first => "Douglas", :last => "Adams"})
-      def initialize(hash, order = :first)
+      def initialize(data, order = :first)
         @order = order
 
-        @attributes = order!(hash)
+        @attributes = order!(data)
         @name = name!(@attributes)
       end
 
