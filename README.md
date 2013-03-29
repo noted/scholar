@@ -24,6 +24,8 @@ $ gem install scholar
 
 ## Usage
 
+### Citation
+
 To create a citation, create a new `Citation` object.
 
 ```ruby
@@ -50,6 +52,8 @@ salinger.html # => Salinger, J. D. <em>Catcher in the Rye</em>. Boston: Little, 
 
 ### Required Keys
 
+#### Global Attributes
+
 All source types can (and must) take these fields.
 
 Key             | Description
@@ -57,7 +61,7 @@ Key             | Description
 `:type`         | The type of publication you're citing ([see the wiki for a list of supported types](types)). Must be a `Symbol` object.
 `:contributors` | An array of contributors (see below for details). If there are no contributors, pass an empty `Array`.
 
-#### Contributors
+##### Contributors
 
 The `:contributors` key is an array of hashes that define contributors. Here's an example.
 
@@ -106,6 +110,13 @@ Key       | Description
 ## Supported Ruby Versions
 
 Scholar is tested on MRI version 1.9.2, 1.9.3, and 2.0.0.
+
+### Search
+
+```ruby
+search = Scholar::Search.new("harry potter")
+search.results # => [#<Scholar::Citation>, #<Scholar::Citation>, ...]
+```
 
 ## Contributing
 

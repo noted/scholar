@@ -14,7 +14,7 @@ module Scholar
       #
       # ==== Attributes
       #
-      # * +hash+ - The data associated with the Contributor.
+      # * +data+ - The data associated with the Contributor.
       # * +order+ - Last-name first (+:last+) or first-name first (+:first+).
       #
       # ==== Options
@@ -27,10 +27,16 @@ module Scholar
       # ==== Examples
       #
       #   Scholar::Utilities::Contributor.new({:first => "Douglas", :last => "Adams"})
-      def initialize(hash, order = :first)
+      def initialize(data, order = :first)
+        if data.is_a?(String)
+          data = hash!(data)
+
+          data[:role] = :author
+        end
+
         @order = order
 
-        @attributes = order!(hash)
+        @attributes = order!(data)
         @name = name!(@attributes)
       end
 
@@ -53,6 +59,23 @@ module Scholar
       end
 
       private
+
+      # Make a Hash out of a String.
+      def hash!(str)
+        data = str.split(" ")
+
+        result = Hash.new
+
+        result[:first] = data.first
+
+        result[:last] = data.last
+
+        if data[2]
+          result[:middle] = data[1]
+        end
+
+        result
+      end
 
       # Order according to the sequence.
       def order!(hash, method = @order)
