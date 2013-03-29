@@ -30,6 +30,8 @@ module Scholar
       def initialize(data, order = :first)
         if data.is_a?(String)
           data = hash!(data)
+
+          data[:role] = :author
         end
 
         @order = order
