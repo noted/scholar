@@ -27,9 +27,7 @@ module Scholar
       # Turn that data into something a Citation class can understand.
       @results = format!(@results)
 
-      # Make a Citation for each.
-
-      # return
+      self
     end
 
     private
@@ -49,6 +47,7 @@ module Scholar
         vol = i["volumeInfo"]
 
         authors = vol["authors"]
+
         contributors = []
         authors.each do |a|
           contributors << Scholar::Utilities::Contributor.new(a).attributes
