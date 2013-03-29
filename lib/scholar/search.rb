@@ -11,7 +11,12 @@ module Scholar
     # The results of the query.
     attr_reader :results
 
-    def initialize(query, options = {})
+    # Searches for sources in Google Books.
+    #
+    # ==== Attributes
+    #
+    # * +query+ - The search term.
+    def initialize(query)
       @@connection = Faraday.new(:url => "https://www.googleapis.com") do |f|
         f.request  :json
         f.response :json, :content_type => /\bjson$/
