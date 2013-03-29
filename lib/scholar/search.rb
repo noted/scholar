@@ -48,8 +48,15 @@ module Scholar
       hash["items"].each do |i|
         vol = i["volumeInfo"]
 
+        authors = vol["authors"]
+        contributors = []
+        authors.each do |a|
+          contributors << Scholar::Utilities::Contributor.new(a).attributes
+        end
+
         citation = Scholar::Citation.new({
           :type => :book,
+          :contributors => contributors,
           :title => vol["title"],
           :publisher => vol["publisher"],
           :year => vol["publishedDate"][0,4]

@@ -28,6 +28,10 @@ module Scholar
       #
       #   Scholar::Utilities::Contributor.new({:first => "Douglas", :last => "Adams"})
       def initialize(data, order = :first)
+        if data.is_a?(String)
+          data = hash!(data)
+        end
+
         @order = order
 
         @attributes = order!(data)
@@ -53,6 +57,23 @@ module Scholar
       end
 
       private
+
+      # Make a Hash out of a String.
+      def hash!(str)
+        data = str.split(" ")
+
+        result = Hash.new
+
+        result[:first] = data.first
+
+        result[:last] = data.last
+
+        if data[2]
+          result[:middle] = data[1]
+        end
+
+        result
+      end
 
       # Order according to the sequence.
       def order!(hash, method = @order)
