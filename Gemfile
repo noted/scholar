@@ -21,5 +21,6 @@ group :test do
 
   gem 'cane', :platforms => :mri
 
-  gem 'coveralls', require: false
+  gem 'simplecov', '0.7.1'
+  gem 'coveralls', '0.6.3'
 end

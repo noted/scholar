@@ -15,7 +15,7 @@ FactoryGirl.define do
     trait :last do
       hash = {
         :role => :author,
-        :first => "Les",
+        :first => "L",
         :middle => "Randy",
         :last => "Grossman",
         :suffix => "Esq"

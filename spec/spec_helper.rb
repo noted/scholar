@@ -2,6 +2,13 @@ require 'coveralls'
 
 Coveralls.wear!
 
+require 'simplecov'
+
+SimpleCov.start do
+  formatter SimpleCov::Formatter::HTMLFormatter
+end
+
+
 require 'spork'
 
 Spork.prefork do

@@ -69,10 +69,5 @@ module Scholar
 
       hash
     end
-
-    # Returns the Citation object in JSON form.
-    def to_json
-      hash = self.to_hash.to_json
-    end
   end
 end

@@ -5,7 +5,7 @@ describe Scholar::Utilities::Contributor do
     let(:c) { build(:contributor, :last) }
 
     it { c.should be_an_instance_of Scholar::Utilities::Contributor }
-    it { c.name.should eql "Grossman, Les R., Esq" }
+    it { c.name.should eql "Grossman, L. R., Esq" }
   end
 
   context "non-author" do
@@ -25,6 +25,6 @@ describe Scholar::Utilities::Contributor do
     end
 
     it { first.name.should eql "Sample, John Q., PhD" }
-    it { last.name.should eql "Les R. Grossman, Esq" }
+    it { last.name.should eql "L. R. Grossman, Esq" }
   end
 end
