@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "scholar"
-  gem.version       = "0.1.0"
+  gem.version       = "0.1.1"
   gem.authors       = ["Ethan Turkeltaub"]
   gem.email         = ["ethan.turkeltaub@gmail.com"]
   gem.description   = %q{Generate valid MLA citations.}
