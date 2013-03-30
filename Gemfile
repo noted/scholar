@@ -3,21 +3,21 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'rake'
-  gem 'pry'
-  gem 'log_buddy'
+  gem 'rake', '~> 10.0'
+  gem 'pry', '~> 0.9.11'
+  gem 'log_buddy', '~> 0.7.0'
 end
 
 group :test do
-  gem 'rspec'
+  gem 'rspec', '~> 2.12.0'
 
-  gem 'vcr'
+  gem 'vcr', '~> 2.4.0'
   gem 'webmock', '~> 1.8.0'
 
-  gem 'factory_girl'
+  gem 'factory_girl', '~> 4.2.0'
 
-  gem 'spork'
-  gem 'fuubar'
+  gem 'spork', '~> 0.9.2'
+  gem 'fuubar', '~> 1.1.0'
 
-  gem 'cane'
+  gem 'cane', :platforms => :mri
 end
