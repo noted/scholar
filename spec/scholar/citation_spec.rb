@@ -39,6 +39,6 @@ describe Scholar::Citation do
   end
 
   describe "#to_hash" do
-    it { c.to_hash.keys.should eql [:attributes, :raw, :html] }
+    it { c.to_hash.keys.should =~ [:attributes, :raw, :html] }
   end
 end
