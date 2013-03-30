@@ -1,4 +1,6 @@
 module Scholar
+
+  # Generic utilities.
   class Utilities
 
     # A list of Contributors.

@@ -9,7 +9,8 @@ module Scholar
       #
       # ==== Attributes
       #
-      # * +arr+ - Array of Symbols (keys). This is the order the hash's key will be in.
+      # * +arr+ - Array of Symbols (keys). This is the order the hash's key
+      #   will be in.
       def sequence(arr = nil)
         unless arr.nil?
           @@sequence = arr
@@ -22,7 +23,8 @@ module Scholar
       #
       # ==== Attributes
       #
-      # * +block+ - A block of +rule+ definitions. The rule definition should call a method in Scholar::Utilities::Formatters.
+      # * +block+ - A block of +rule+ definitions. The rule definition should
+      #   call a method in Scholar::Utilities::Formatters.
       #
       # ==== Example
       #
@@ -44,7 +46,8 @@ module Scholar
       # ==== Attributes
       #
       # * +key+ - The key of the hash to take the action on. Symbol.
-      # * +action+ - The action to take on the key. Should be a method within Scholar::Utilities::Formatters.
+      # * +action+ - The action to take on the key. Should be a method within
+      #   Scholar::Utilities::Formatters.
       def rule(key, &action)
         @@rules << [key, action]
       end

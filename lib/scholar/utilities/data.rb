@@ -1,4 +1,6 @@
 module Scholar
+
+  # Generic utilities.
   class Utilities
 
     # Utilities for dealing with hashes and actually creating the

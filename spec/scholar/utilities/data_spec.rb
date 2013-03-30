@@ -81,7 +81,7 @@ describe Scholar::Utilities::Data do
 
   describe "#order!" do
     let(:hash) do
-      { :foobar => "Foo to the bar to the foo.", :bar => "Hello there.", :abc => "123" }
+      { :foobar => "Foobar.", :bar => "Hello there.", :abc => "123" }
     end
 
     let(:sequence) do

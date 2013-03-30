@@ -1,4 +1,6 @@
 module Scholar
+
+  # Generic utilities.
   class Utilities
 
     # A person associated with a work.
@@ -20,13 +22,17 @@ module Scholar
       # ==== Options
       #
       # * +:first+ - The name of the Contributor.
-      # * +:middle+ - The middle name of the Contributor. Will be shortened to an initial.
+      # * +:middle+ - The middle name of the Contributor.
+      #   Will be shortened to an initial.
       # * +:last+ - The surname of the Contributor.
       # * +:suffix+ - The suffix of the Contributor (PhD, Esq, etc).
       #
       # ==== Examples
       #
-      #   Scholar::Utilities::Contributor.new({:first => "Douglas", :last => "Adams"})
+      #   Scholar::Utilities::Contributor.new({
+      #     :first => "Douglas",
+      #     :last => "Adams"
+      #   })
       def initialize(data, order = :first)
         if data.is_a?(String)
           data = hash!(data)
