@@ -20,4 +20,6 @@ group :test do
   gem 'fuubar', '~> 1.1.0'
 
   gem 'cane', :platforms => :mri
+
+  gem 'coveralls', require: false
 end

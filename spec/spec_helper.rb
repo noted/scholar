@@ -1,3 +1,7 @@
+require 'coveralls'
+
+Coveralls.wear!
+
 require 'spork'
 
 Spork.prefork do

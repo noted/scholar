@@ -1,4 +1,6 @@
-# Scholar [![Build Status](https://secure.travis-ci.org/noted/scholar.png)](https://travis-ci.org/noted/scholar)
+# Scholar
+
+[![Gem Version](https://badge.fury.io/rb/sidekiq.png)](https://rubygems.org/gems/scholar) [![Build Status](https://secure.travis-ci.org/noted/scholar.png)](https://travis-ci.org/noted/scholar) [![Code Climate](https://codeclimate.com/github/noted/scholar.png)](https://codeclimate.com/github/noted/scholar) [![Coverage Status](https://coveralls.io/repos/noted/scholar/badge.png?branch=master)](https://coveralls.io/r/noted/scholar)
 
 Scholar is a Ruby library for building [MLA citations](http://www.mla.org/) for scholarly works. Just pass Scholar your data and it'll do the rest.
 
