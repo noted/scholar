@@ -1,12 +1,12 @@
+require 'simplecov'
 require 'coveralls'
 
-Coveralls.wear!
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 
-require 'simplecov'
-
-SimpleCov.start do
-  formatter SimpleCov::Formatter::HTMLFormatter
-end
+SimpleCov.start
 
 
 require 'spork'
