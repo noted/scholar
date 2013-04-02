@@ -35,6 +35,21 @@ module Scholar
       self
     end
 
+    # Return as hash.
+    def to_hash
+      hash = {}
+
+      instance_variables.each do |v|
+        hash[v.to_s[1..-1].to_sym] = instance_variable_get(v)
+      end
+
+      hash[:results].each do |c|
+        hash[:results][hash[:results].index(c)] = c.to_hash
+      end
+
+      hash
+    end
+
     private
 
     def perform!(query)
