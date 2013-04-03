@@ -47,11 +47,7 @@ module Scholar
       @raw = @attributes.clone
       @attributes.delete(:type)
 
-      @attributes.each do |k, v|
-        if v.blank?
-          @attributes.delete(v)
-        end
-      end
+      @attributes.delete_if { |k, v| v.empty? }
 
       if @attributes[:contributors]
         @attributes = Scholar::Utilities.contributors!(@attributes)
