@@ -26,6 +26,11 @@ module Scholar
         "#{str.to_s},"
       end
 
+      # Format a date given a formatted string.
+      def date(date, str)
+        date.strftime(str)
+      end
+
       # Add <em> tags around a String to italicize it.
       def italicize(str)
         "<em>#{str.to_s}</em>"

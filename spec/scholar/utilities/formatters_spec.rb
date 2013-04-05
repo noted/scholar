@@ -27,6 +27,12 @@ describe Scholar::Utilities::Formatters do
     it { str.should eql "foo," }
   end
 
+  describe ".date" do
+    let(:str) { s.date(Date.new(2013, 4, 5), "%-d %b. %Y") }
+
+    it { str.should eql "5 Apr. 2013" }
+  end
+
   describe ".italicize" do
     let(:str) { s.italicize("foo") }
 
