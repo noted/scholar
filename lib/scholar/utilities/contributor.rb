@@ -40,6 +40,8 @@ module Scholar
           data[:role] = :author
         end
 
+        data.delete_if {|k, v| v.nil? || v.empty? }
+
         @order = order
 
         @attributes = order!(data)

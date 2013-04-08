@@ -8,7 +8,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 
 SimpleCov.start
 
-
 require 'spork'
 
 Spork.prefork do
