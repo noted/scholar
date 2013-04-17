@@ -53,7 +53,7 @@ module Scholar
         end
       end
 
-      @attributes.delete_if {|k, v| v.nil? || v.empty? }
+      @attributes.delete_if { |k, v| v.nil? || v.empty? }
 
       if @attributes[:contributors]
         @attributes = Scholar::Utilities.contributors!(@attributes)
