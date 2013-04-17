@@ -20,7 +20,6 @@ group :test do
   gem 'fuubar', '~> 1.1.0'
 
   gem 'cane', :platforms => :mri
-  gem 'rubocop'
 
   gem 'simplecov', '0.7.1'
   gem 'coveralls', '0.6.3'

@@ -17,9 +17,9 @@ module Scholar
     #
     # * +query+ - The search term.
     def initialize(query)
-      @connection = Faraday.new(url: 'https://www.googleapis.com') do |f|
+      @@connection = Faraday.new(:url => "https://www.googleapis.com") do |f|
         f.request  :json
-        f.response :json, content_type: /\bjson$/
+        f.response :json, :content_type => /\bjson$/
         f.adapter  Faraday.default_adapter
       end
 
@@ -53,8 +53,8 @@ module Scholar
     private
 
     def perform!(query)
-      request = @connection.get do |r|
-        r.url '/books/v1/volumes', q: query
+      request = @@connection.get do |r|
+        r.url "/books/v1/volumes", :q => query
       end
 
       request.body
@@ -63,10 +63,10 @@ module Scholar
     def format!(hash)
       arr = []
 
-      hash['items'].each do |i|
-        vol = i['volumeInfo']
+      hash["items"].each do |i|
+        vol = i["volumeInfo"]
 
-        authors = vol['authors']
+        authors = vol["authors"]
 
         contributors = []
         authors.each do |a|
@@ -74,11 +74,11 @@ module Scholar
         end
 
         citation = Scholar::Citation.new({
-          type: :book,
-          contributors: contributors,
-          title: vol['title'],
-          publisher: vol['publisher'],
-          year: vol['publishedDate'][0, 4]
+          :type => :book,
+          :contributors => contributors,
+          :title => vol["title"],
+          :publisher => vol["publisher"],
+          :year => vol["publishedDate"][0,4]
         })
 
         arr << citation
