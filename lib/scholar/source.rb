@@ -56,7 +56,8 @@ module Scholar
 
   # A collection of different source types.
   module Sources
-  end
+    root = File.expand_path(File.dirname(__FILE__))
 
-  Dir[File.dirname(__FILE__) + '/sources/*.rb'].each {|file| require file }
+    autoload :Book, "#{root}/sources/book.rb"
+  end
 end
