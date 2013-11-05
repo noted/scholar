@@ -1,5 +1,4 @@
-require 'scholar/version'
+require 'scholar/client'
 
 module Scholar
-  # Your code goes here...
 end
