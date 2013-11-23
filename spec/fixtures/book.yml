@@ -1,0 +1,61 @@
+name: book
+
+order:
+  - authors
+  - title
+  - editors
+  - compilers
+  - translators
+  - edition
+  - volume
+  - city
+  - publisher
+  - year
+  - media
+  - series
+
+
+formatting:
+  authors:
+    period: ~
+
+  title:
+    italicize: ~
+    period: ~
+
+  editors:
+    prefix: Ed.
+    period: ~
+
+  compilers:
+    prefix: Comp.
+    period: ~
+
+  translators:
+    prefix: Trans.
+    period: ~
+
+  edition:
+    ordinal: ~
+    suffix: ed
+    period: ~
+
+  volume:
+    prefix: Vol.
+    period: ~
+
+  city:
+    colon: ~
+
+  publisher:
+    comma: ~
+
+  year:
+    period: ~
+
+  media:
+    capitalize: ~
+    period: ~
+
+  series:
+    period: ~

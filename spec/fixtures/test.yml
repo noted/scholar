@@ -1,0 +1,12 @@
+name: test
+
+order:
+  - foo
+  - bar
+  - biz
+  - baz
+
+formatting:
+  foo:
+    prefix: "Ed. "
+    suffix: "."

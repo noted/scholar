@@ -1,5 +1,9 @@
+require 'active_support'
+
 require 'scholar/version'
 require 'scholar/configurable'
+require 'scholar/type'
+require 'scholar/formatter'
 
 module Scholar
   class Client

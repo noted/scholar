@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     scholar (0.2.0ab)
+      activesupport (~> 4.0.1)
 
 GEM
   remote: https://rubygems.org/
