@@ -8,8 +8,13 @@ describe Scholar::Client do
       })
     end
 
-    it { client.should be_an_instance_of Scholar::Client }
-    it { client.output.should eql [:html, :markdown, :word] }
+    it 'initialized properly' do
+      client.should be_an_instance_of Scholar::Client
+    end
+
+    it 'sets configuration correctly' do
+      client.output.should eql [:html, :markdown, :word]
+    end
   end
 
   describe '.configure' do
@@ -22,6 +27,8 @@ describe Scholar::Client do
       scholar
     end
 
-    it { client.output.should eql [:html, :markdown, :word] }
+    it 'sets configuration properly' do
+      client.output.should eql [:html, :markdown, :word]
+    end
   end
 end

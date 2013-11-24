@@ -14,5 +14,9 @@ module Scholar
         instance_variable_set(:"@#{key}", options[key] || Scholar.instance_variable_get(:"@#{key}"))
       end
     end
+
+    def cite(*args)
+      return Scholar::Citation.new(args)
+    end
   end
 end

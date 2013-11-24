@@ -1,6 +1,6 @@
 name: test
 
-order:
+sequence:
   - foo
   - bar
   - biz
@@ -8,5 +8,5 @@ order:
 
 formatting:
   foo:
-    prefix: "Ed. "
-    suffix: "."
+    prefix: "Ed."
+    period: ~
