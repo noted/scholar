@@ -4,6 +4,7 @@ require 'scholar/version'
 require 'scholar/configurable'
 require 'scholar/type'
 require 'scholar/formatter'
+require 'scholar/citation'
 
 module Scholar
   class Client

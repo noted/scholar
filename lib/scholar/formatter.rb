@@ -58,5 +58,9 @@ module Scholar
     def carets(value, option)
       "&#60;#{value}&#62;"
     end
+
+    def contributors(value, option)
+
+    end
   end
 end

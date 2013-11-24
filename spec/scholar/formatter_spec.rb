@@ -97,5 +97,30 @@ describe Scholar::Formatter do
         formatter.execute('foo').should eql('&#60;foo&#62;')
       end
     end
+
+    context ':contributors' do
+      it 'creates a comma-delimited list of people' do
+        contributors = [
+          {
+            name: 'Douglas',
+            middle: 'N',
+            surname: 'Adams'
+          },
+          {
+            name: 'J',
+            middle: 'K',
+            surname: 'Rowling'
+          },
+          {
+            name: 'Richard',
+            surname: 'Dawkins',
+            suffix: 'PhD'
+          }
+        ]
+
+        formatter = Scholar::Formatter.new(:contributors)
+        formatter.execute(contributors).should eql('Adams, Douglas N., Richard Dawkins, PhD, J. K. Rowling')
+      end
+    end
   end
 end

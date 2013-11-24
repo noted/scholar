@@ -25,7 +25,7 @@ module Scholar
     end
 
     def format(data)
-      output = {}
+      output = ActiveSupport::OrderedHash.new
 
       data.each do |key, value|
         if formatters = @formatting[key.to_sym]
