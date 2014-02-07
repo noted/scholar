@@ -2,10 +2,14 @@ require 'citeproc'
 
 module Scholar
   class Citation
-    def initialize(*args)
-      style = File.open(File.join(SCHOLAR_ROOT, 'vendor', 'citation-styles', 'modern-language-association.csl')).read
+    attr_accessor :source, :citation, :csl
 
-      return CiteProc.process(args, style: style, format: :html)
+    def initialize(source, style)
+      csl = File.open(File.join(SCHOLAR_ROOT, 'vendor', 'citation-styles', "#{style}.csl")).read
+
+      @csl      = style
+      @source   = source
+      @citation = CiteProc.process(source, style: csl, format: :html)
     end
   end
 end

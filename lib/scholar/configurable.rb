@@ -5,7 +5,7 @@ module Scholar
     class << self
       def keys
         @keys ||= [
-          :output
+          :csl
         ]
       end
     end

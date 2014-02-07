@@ -9,11 +9,15 @@ module Scholar
     def initialize(options = {})
       Scholar::Configurable.keys.each do |key|
         instance_variable_set(:"@#{key}", options[key] || Scholar.instance_variable_get(:"@#{key}"))
+
+        self.class.send(:define_method, key) do
+          options[key]
+        end
       end
     end
 
-    def cite(*args)
-      return Scholar::Citation.new(args)
+    def cite(source)
+      return Scholar::Citation.new(source, @csl)
     end
   end
 end
