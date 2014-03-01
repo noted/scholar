@@ -1,6 +1,10 @@
-require 'scholar/version'
-require 'scholar/configurable'
-require 'scholar/citation'
+require 'citeproc'
+require 'csl/styles'
+
+require_relative 'version'
+require_relative 'configurable'
+require_relative 'citation'
+require_relative 'style'
 
 module Scholar
   class Client

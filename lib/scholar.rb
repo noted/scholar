@@ -1,4 +1,4 @@
-require 'scholar/client'
+require_relative 'scholar/client'
 
 module Scholar
   # SCHOLAR_ROOT = File.open(File.join(__FILE__, '..'))

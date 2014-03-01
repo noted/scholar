@@ -1,5 +1,3 @@
-require 'citeproc'
-
 module Scholar
   class Citation
     attr_accessor :source, :citation, :csl
