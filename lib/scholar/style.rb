@@ -1,16 +1,18 @@
 module Scholar
   class Style
-    def self.all
-      files = Dir["#{SCHOLAR_ROOT}/vendor/citation-styles/*.csl"]
-
-      styles = []
-      files.each do |file|
-        filename = file.split('/').pop.split('.').first
-
-        styles << CSL::Style.load(filename)
+    class << self
+      def all
+        CSL::Style.ls.collect { |s| CSL::Style.load(s) }
       end
 
-      return styles
+      def all_as_html_options
+        options = []
+        CSL::Style.ls.each do |s|
+          options << "<option value='#{s}'>#{CSL::Style.load(s).info.title}</option>"
+        end
+
+        options
+      end
     end
   end
 end
