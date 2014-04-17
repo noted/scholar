@@ -8,7 +8,11 @@ module Scholar
       def all_as_html_options
         options = ''
         CSL::Style.ls.each do |s|
-          options << "<option value='#{s}'>#{CSL::Style.load(s).info.title}</option>"
+          loaded = CSL::Style.load(s)
+
+          if loaded.has_info?
+            options << "<option value='#{s}'>#{loaded.info.title}</option>"
+          end
         end
 
         options
