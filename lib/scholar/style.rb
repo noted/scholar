@@ -10,7 +10,7 @@ module Scholar
         CSL::Style.ls.each do |s|
           loaded = CSL::Style.load(s)
 
-          if loaded.has_info?
+          if !loaded.nil? && loaded.has_info?
             options << "<option value='#{s}'>#{loaded.info.title}</option>"
           end
         end
