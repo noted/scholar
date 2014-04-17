@@ -6,7 +6,7 @@ module Scholar
       end
 
       def all_as_html_options
-        options = []
+        options = ''
         CSL::Style.ls.each do |s|
           options << "<option value='#{s}'>#{CSL::Style.load(s).info.title}</option>"
         end
